@@ -1,0 +1,110 @@
+
+.form{
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.form-label{
+    text-align: left;
+    display: block;
+    margin: 10px 0px;
+}
+.input-field{
+    display: block;
+    outline: none;
+    min-height: 30px;
+    border: 1px solid #707070;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #121212;
+    outline: transparent;
+    background: none;
+    padding-right: 25px;
+}
+.input-field:focus{
+    outline: 1px solid #0D33C0;
+    border-color: #0D33C0;
+}
+.input-field[type="email"]:invalid{
+    border-color: red;
+    outline: 1px solid red;
+}
+.rounded_corner{
+    border-radius: 30px 30px 0 0;
+    padding-top: 30px;
+    padding-bottom: 90px;
+    background: #fff;
+    margin-top: 180px;
+}
+.internal-heading{
+    font-size: 20px;
+    font-weight: 700;
+}
+.declaration p{
+    font-size: 11px;
+    color: #8B8B8B;
+    margin-bottom: 0px;
+}
+.declaration p span{
+    color: red;
+}
+.tp-rounded-container{
+    background: #0D33C0;
+    color: #fff;
+    border-radius: 25px 25px 0 0;
+    margin-top: -25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 190px;
+}
+.select-tp-rounded-container{
+    background: #0D33C0;
+    color: #fff;
+    border-radius: 25px 25px 0 0;
+    margin-top: -25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* margin-top: 190px; */
+}
+.tp-box{
+    width: 85%;
+    margin: 0 auto;
+}
+.tp-box h2{
+    font-size: 20px;
+    font-weight: 600;
+    color: #6485FF;
+}
+
+.tp-box span{
+    font-size: 13px;
+}
+.simple-block, .bg-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-bottom: 5px;
+}
+.bg-block{
+    background: #5977E4;
+}
+.tp-container{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #fff;
+}
+.tp-card{
+    background: #F0F3FD;
+    border-radius: 9px;
+    height: 65px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.line-height {
+    line-height: 14px !important;
+    font-size: 12px;
+    width: 90%;
+}

@@ -1,0 +1,215 @@
+/* .downarrow {
+  position: relative;
+  min-height: 10px;
+} */
+
+/* .arrow-container {
+  width: 36px;
+  height: 0px;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 6px;
+  animation: float 2s infinite;
+} */
+
+/* .arrow-2 {
+  width: 35px;
+  height: 35px;
+  background: #214ae1;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  display: table;
+} */
+
+/* .arrow-2:before {
+  width: 35px;
+  height: 35px;
+  content: "";
+  border: 2px solid #153ac3;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+} */
+
+/* .arrow-2 i.fa.fa-angle-down {
+  font-size: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+} */
+
+/* .arrow-1 {
+  width: 55px;
+  height: 55px;
+  background: #214ae1;
+  opacity: 0.5;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  animation: zoomIn 0.2s infinite;
+} */
+
+/* .animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+} */
+
+/* @-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.4, 0.4, 0.4);
+    transform: scale3d(0.4, 0.4, 0.4);
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-5px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.4, 0.4, 0.4);
+    transform: scale3d(0.4, 0.4, 0.4);
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+} */
+
+.downarrow {
+  position: relative;
+  min-height: 20px;
+}
+
+.arrows {
+  width: 85px;
+  height: 72px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: -60px;
+  margin-bottom: 8px;
+}
+
+.arrows path {
+  stroke: blue;
+  fill: transparent;
+  stroke-width: 3px;
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.arrows path.a1 {
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s; /* Safari 和 Chrome */
+}
+
+/* Down Arror TP Join */
+
+.page-details {
+  position: relative;
+}
+
+.downwardarrow {
+  position: fixed;
+  left: 93%;
+  animation: slide1 1s ease-in-out infinite;
+  height: 500px;
+  /* margin-left: 3px; */
+  display: flex;
+  align-items: center;
+}
+.upwardarrow {
+  transform: rotate(180deg);
+}
+
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, 10px);
+  }
+}

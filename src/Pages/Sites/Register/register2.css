@@ -1,0 +1,281 @@
+.registraion_wrrpers {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.back_header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    z-index: 999;
+}
+
+.form_area form {
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+.form_area form h1 {
+    font-size: 24px;
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.form_groupDiv label {
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    color: #060606;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+.form_groupDiv input {
+    display: block;
+    outline: none;
+    min-height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #121212;
+    outline: transparent;
+    background: none;
+    border: 1px solid #0D33C0;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.form_groupDiv input::placeholder {
+    color: #CBCBCB;
+}
+
+.form_groupDiv select {
+    display: block;
+    outline: none;
+    min-height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #121212;
+    outline: transparent;
+    background: none;
+    border: 1px solid #0D33C0;
+    width: 100%;
+    padding: 0 10px;
+    appearance: none;
+}
+
+.form_groupDiv {
+    margin-bottom: 23px;
+}
+
+.selects_wrppers .select_area {
+    display: flex;
+    outline: none;
+    min-height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #121212;
+    outline: transparent;
+    background: none;
+    border: 1px solid #0D33C0;
+    width: 100%;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.selects_wrppers .select_area .select {
+    position: relative;
+    width: 70%;
+}
+
+.selects_wrppers .select_area .select .selects {
+    outline: none;
+    border: none;
+    appearance: none;
+    width: 100%;
+}
+
+.selects_wrppers .select_area .select::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1px;
+    height: 80%;
+    background: #707070;
+    transform: translateY(-50%);
+}
+
+.selects_wrppers .select_area .select .arrow_img {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+}
+
+.selects_wrppers .select_area input {
+    border: none;
+    width: 80%;
+}
+
+.selects_wrppers .select_area input:focus {
+    outline: none;
+}
+
+.selectss {
+    position: relative;
+}
+
+.selectss .down_arrow {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    pointer-events: none;
+}
+
+.selectss .down_arrow i {
+    color: #0D33C0;
+}
+
+.capctha_inputs label {
+    width: 40%;
+    font-size: 14px;
+    color: #060606;
+    font-weight: 700;
+    margin: 0;
+}
+
+.capctha_inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+}
+
+.capctha_inputs input {
+    width: 58%;
+    display: block;
+    outline: none;
+    min-height: 45px;
+    border: none;
+    border: 1px solid #0D33C0;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #121212;
+    outline: transparent;
+    background: none;
+    padding: 0 10px;
+}
+
+.forgotPassword {
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.forgotPassword .forgotPassword_link {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color: #0D33C0;
+    font-weight: 700;
+}
+
+.terms_conditions {
+    display: flex;
+    align-items: baseline;
+    margin-top: 30px;
+}
+
+input[type=checkbox]+label {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    padding: 0;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]+label:before {
+    content: "\2714";
+    border: 2px solid #0D33C0;
+    border-radius: 0;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    padding-left: 0;
+    padding-bottom: 14px;
+    margin-right: 10px;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    font-size: 12px;
+}
+
+input[type=checkbox]+label:active:before {
+    transform: scale(0);
+}
+
+input[type=checkbox]:checked+label:before {
+    background-color: #0D33C0;
+    border-color: #0D33C0;
+    color: #fff;
+}
+
+input[type=checkbox]:disabled+label:before {
+    transform: scale(1);
+    border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled+label:before {
+    transform: scale(1);
+    background-color: #0D33C0;
+    border-color: #0D33C0;
+}
+
+.term_conditionsCntn {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    color: #5A5A5A;
+
+}
+
+.term_conditionsCntn a {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    color: #5A5A5A;
+    text-decoration: underline;
+}
+
+button.submit_btn {
+    width: 100%;
+    border-radius: 9px;
+    background: #0D33C0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.requiredField {
+    font-size: 14px;
+    color: 060606;
+    font-weight: 500;
+    color: #5A5A5A;
+}
+

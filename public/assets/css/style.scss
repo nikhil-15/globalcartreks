@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+$overPass:'Overpass', sans-serif;
+$primaryColor:#0D33C0;
+$secondaryColor:#fff;
+@font-face {
+    font-family: 'tohma_regular';
+      src: url("../font/Tahoma\ Regular\ font.ttf");
+}
+
+@font-face {
+font-family: 'tohma_bold';
+    src: url("../font/TAHOMAB0.TTF");
+}
+
+.get_start_wrpper{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primaryColor;
+    position: relative;
+    &::after{
+        content: '';
+        background: url('../img/start_page/buildings.png');
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 295px;
+        position: absolute;
+        bottom: 0;
+        // left: 50%;
+        // transform: translateX(-50%);
+        background-position: center;
+    }
+    &::before{
+        content: '';
+        background: url('../img/start_page/map.png');
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 345px;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        background-position: center;
+        transform: translateX(-50%);
+    }
+    // padding: 0 40px;
+    .get_start{
+        position: relative;
+        z-index: 99;
+        h4{
+            color: #fff;
+            font-size: 20px;
+            line-height: 25px;
+            text-align: center;
+            margin-bottom: 62px;
+        }
+        .linking{
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            border: 1px solid #fff;
+            padding: 15px 20px 11px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+            line-height: 15px;
+        }
+    }
+}
+.Nav_link {
+    color: red;
+    font-size: 20px;
+    line-height:normal;
+}
+.para{
+    font-family: $overPass;
+    color: red;
+    font-size: 20px;
+}

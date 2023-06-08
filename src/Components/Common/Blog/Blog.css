@@ -1,0 +1,8 @@
+.blogbanner1 {
+    height: 30vh;
+    background-image: url(../assets/img/blog2.png);
+    background-position: top;
+    background-size: cover;
+    position: relative;
+    z-index: -1,
+}

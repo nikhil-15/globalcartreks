@@ -1,0 +1,809 @@
+{
+	"info": {
+		"_postman_id": "990891af-8b06-4404-9e18-b7746b68e893",
+		"name": "hps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12163649"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Bablu",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "bablu1@wdipl.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "wdipl@140",
+							"type": "text"
+						},
+						{
+							"key": "country_code",
+							"value": "+91",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "9819288495",
+							"type": "text"
+						},
+						{
+							"key": "recovery_questions_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "question_answer",
+							"value": "tomy",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/register",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "bablu@wdipl.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "wdipl@1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/login",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiY2EyOTFhOGVjNDlhZjM3NWQ1MWQyOTRjZmRiODQ5ZGM0YzQxZDcxYTg5NWMxZWE5ZjMzYzdkMDg0ZmZmNTljMWI1NzQwNjllZmE0ODFmOGMiLCJpYXQiOjE2NTI3OTkwMzIuODg1NzA0OTk0MjAxNjYwMTU2MjUsIm5iZiI6MTY1Mjc5OTAzMi44ODU3MTAwMDA5OTE4MjEyODkwNjI1LCJleHAiOjE2ODQzMzUwMzIuNzk1MjU5OTUyNTQ1MTY2MDE1NjI1LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.laDTv7qOlExkwbahg8pSF5u3Dgqkwn4KTlUC2h0Sh8bSG0yBk6zNIVmkY9-hSv-ay1tHivVQ0u-tRahD94FKW-z2T40P5j4c2aicCmOQ1u5yhC6nsavPsRL9e_gtKiqGLhkIML0DgA8uHoSf8uLMshetBgEwMT6rB7NIArvrecRfPrGpea3coVEpkBJJ8-S9EB9nzFN9IS3JtLAjaiMhmzvvuhVMw-tXrR0MVWGGktYyu-ePgvKnuzNEKC5zsbu3vQZlApWrGQdlPc_BGRUZbh3F3oG8bB3qaWKPkkKh4yx1TJnBUqj3Kdc6M9OJTVIvVYDzgmBczeeZJoYivtgjv9AbifcIas3b5bYL6Rp7nofgyibXE0UhhCqcVHkGtt8oN8Scsa8GCer40ZlNXqL38n_R84VcE6cu5yXtmfVdLQX99KlEyzYj5K4Ta30bQUBYn2Qv6zgw1-4XPUu2PKDJsKz6vy3LsQBuuZpe90mFwlXc6qIybPX-YVOuMTUlFovcSdBkkPvNs0ISzhCxL3gk5hVJPmc6-vQrGsDALY7Gm6mdl-qKQeDsuX1Y3mQwt9Y_f9eerEjKNXBWLqgVLAPsG6jBfuka7MhCQNnu4jFVxGa1ffRZWf6Q7VJ6YL9lof9hES_IzMk0M_NbPtxcGdDHE_BJv2CFmyBvGnCuKusQO4E",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/logout",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "terms_condition",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/terms_condition",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"terms_condition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "privacy_policy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/privacy_policy",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"privacy_policy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recovery_questions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/recovery_questions",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"recovery_questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check_email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "bablu1@wdipl.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/check_email",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"check_email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forgot_password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "bablu@wdipl.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/forgot_password",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"forgot_password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resend_otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "bablu@wdipl.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/resend_otp",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"resend_otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change_password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "bablu@wdipl.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "wdipl@1234",
+							"type": "text"
+						},
+						{
+							"key": "otp",
+							"value": "2878",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/change_password",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"change_password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODY1MjQ1NDk0NTI4NmZkZjNlOWVlNGNkMjMzNjc4ZTg2MTQ2NTRhZmUzZGNmYWI1ZTQ2MzhiOTc2Y2M1OTdhYWY3NWJkMzIyZDU2ZGI1MzYiLCJpYXQiOjE2NTMzODk5ODAuMzI4NzM3MDIwNDkyNTUzNzEwOTM3NSwibmJmIjoxNjUzMzg5OTgwLjMyODc0NjA4MDM5ODU1OTU3MDMxMjUsImV4cCI6MTY4NDkyNTk4MC4zMDQ3MzMwMzc5NDg2MDgzOTg0Mzc1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.YOZFNE1DH26ysII5TexkXzkUuQS_wEt5rSvNKESD_dNVEXhIh1vmWIBahXBiLPFFvZUxhK-m6durTYSvhl23f_11iV3u1LJcvcT1PbPjXXCutWFr6nWV-ygBSsBakoGuayga8xrM-coaN0KCBLrDDoWvBYYnjcLaoQAXKGsqoHtU-DcJQroUvGz3PesG5lSN6yHmymcwAaUJG6tRCTcBXrDbTjNjE1GjhiPBO43nAYBImhM-9wx3gjjsEcq8BAMIOb1QsaPRYxp-HGtJVDEVQM2afDcPta0MauINxtTRoy672Xtm1yEkCz3YPoM_VJ4mi8zzAWSWid841ZPlaZf5bJeQpO7ddaKRvuPpmEKnmUOemSVti9tI7mBSIcjWgxRLzjlvP_Go75rzmtZ2ylTXbmAZuFAwpvoT4d4T1npK-DBOsQEEyb-nw_bmhlw5oOdx8I9pFGzlCA7V_TLh7NDicYY0yHfJI1-9S-_hrTnhNjIqSx3fT2uPYMpmh7TujxBq8-WsSHgINmDLijtO07Xce-tkWcV-QmFr03alEzRyXMkbCu3yKIUn9rGpLKTsFBGXjrgcXHJy40ovNXCm8XsBtfJNMtJQyNuYsYQqSXjtnLU2_LznuPsMAHj9T9szuyLyacLYgreINwgX-JHBKYGYJkT-RSadVDKXYK3VOgtF1Zg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "gender",
+							"value": "male",
+							"type": "text"
+						},
+						{
+							"key": "dob",
+							"value": "11-08-1984",
+							"type": "text"
+						},
+						{
+							"key": "countries_id",
+							"value": "101",
+							"type": "text"
+						},
+						{
+							"key": "states_id",
+							"value": "101",
+							"type": "text"
+						},
+						{
+							"key": "cities_id",
+							"value": "101",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/profile",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_profile_picture",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWUxOWRjMDQyZThlZGE5ZWE2MmUzOTQ0NjUzYjljZWI4ZDk4NzlkYzJmNmI0M2YxYzUxYTE0ZWEwZmQ0NWU3OWYxZmQ3OTlhYTc0ZGRmZDEiLCJpYXQiOjE2NTI5NTQ4MDEuOTIyNzAyMDc0MDUwOTAzMzIwMzEyNSwibmJmIjoxNjUyOTU0ODAxLjkyMjcwNzA4MDg0MTA2NDQ1MzEyNSwiZXhwIjoxNjg0NDkwODAxLjg4NTYyMzkzMTg4NDc2NTYyNSwic3ViIjoiMSIsInNjb3BlcyI6W119.fQnGAuhOaFVUJC_TYU_a6JQdMsME-QoIXIXgLpWoDLyxPdWt70nEbY8dd1vA0JyDUOuUF8BDAT7v8f9t5qDCLHTESc4yfKxWsWcRsBKpH3HqMHzXdAVJYbp65fxFUZWNzxEnjVs6YaF2C80a-JzbzeSJyxKe4trfktfLFx9RstPeD8UZese8p0K8LOJOTQ7YrtycjEnmEIcKz8e9zNhLCa5x4ffApwUeSE4Pz7jhnvh1rsZmCuvQyXxl1psbDdSkUTKQ_u24sKVvGyew1OxJjyOG7BMSYR5wkFWHCqNnqVJpKZl59-bSWCtqU_bWZtHFYvdjo8yqVA3K9FRlvb5_Dtdh_kp9Y1CauCyvR4N-Vs_kCQ37LJ9_kaPspwSW1ikKORfNNXAQ2hHm-y5A3kmmIjv3mfmmlIFYdpndW7BaTNowD6txUgm_Pt2q52avYxiZwhAMR2WGeBSYHaTEHt5QxRCq-MJOw8yMkmLxIw-JvBw1LBLBUDQgY2hY9_Z3hOEvVXdGQiGBYHpUeHdbNU8tqpbhU1L7YIev2KQ4cNmgBit0QalIm7K4atyaD-CRteS2jSx5qI9zSLslt30Od7WDMpPf2V5WeyD9LzJibTxNZwBC3N8v6o5990-CUNe6wVrQPJCFS2GdgN0WxeC1N03zK3QuIuDVmHkS3I6HYv8ahvk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profile_picture",
+							"type": "file",
+							"src": "/C:/Users/WDIPL/Pictures/certi.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/add_profile_picture",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"add_profile_picture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch-country",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/fetch-country",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"fetch-country"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch-states",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "country_id",
+							"value": "101",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/fetch-states",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"fetch-states"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch-cities",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "state_id",
+							"value": "22",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/fetch-cities",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"fetch-cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch_trades",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/jso",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/fetch_trades",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"fetch_trades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_trade",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/get_trade",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"get_trade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buy_trade",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTcxMTQzMjM2MTBiYjRmNTZmM2VhMTA4YmUyNDdmZjJhMTk1MDk1NjdlMmU0YTZlNDY2ODJiNGM0ZDg1NDA2ZWViM2VjZDUwMDYzYTE1OGEiLCJpYXQiOjE2NTc1NDI3NjkuODI1NzY3MDQwMjUyNjg1NTQ2ODc1LCJuYmYiOjE2NTc1NDI3NjkuODI1Nzc4MDA3NTA3MzI0MjE4NzUsImV4cCI6MTY4OTA3ODc2OS42Mzk2MzM4OTM5NjY2NzQ4MDQ2ODc1LCJzdWIiOiI2MyIsInNjb3BlcyI6W119.FQgtcHRmccuPK9i7Asgdr6aQZ8B6CO-usISZz9TulrPEKDOSDaIyAQpEh1aF6jHzcLSRALWRMGFcNXMCFr5OXHA9FnAQVzskcR25BK_27niFdA7grqkyRG5jqYQuHoRXmWAx0jriwYlOwcWi9RPNj_8bboI8_t7gwzwVBcCEpsDZSKf0xcH6ZXYLisDxprN2meZtJzYohWB4ZSRCRfMqmNhE2Iqs21btJOHTGEXYSF6lr3FP_nZ-vn3pBCpcfDgUJD4Rw4eepHxq5QnZPRHzpTQGLGulaMQhcWSaoM8-F-QnotJzu26TIYUvqN6M0CmHuRc1ew7JdCsaMDPHHGzv43Dnq_N2wcEVFrElw0vpay7Q0wtHe1IhrF7ltf1DAf5MPR7rsTEPX_5P4cT9R1m_UWll8eo0GQDPlCJU7qWC21YEd-J_cTytHb1z_q8qJZHjyXkE6d29OKz57jkdOafaKsbBXa6TihEojzASyOfXfjwzjFfcXuxiWzdyWoVs_cdG6otuX6I5u0BKe-j0FnVNoRu6joJeM2ypjcartObcvPsr1px7aycNHkX6argmiUz7um3WervCmhADVlFKIG6dNZiCeooi_lc2zpbKusUFS_6wyGojDqlGRPdFlHctHsuKeKEObrS9PmmsEdynvDKPSZILaAbMtPoyFeTIMMuLxwU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "trade_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "users_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "quantity",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/buy_trade",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"buy_trade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sell_trade",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTcxMTQzMjM2MTBiYjRmNTZmM2VhMTA4YmUyNDdmZjJhMTk1MDk1NjdlMmU0YTZlNDY2ODJiNGM0ZDg1NDA2ZWViM2VjZDUwMDYzYTE1OGEiLCJpYXQiOjE2NTc1NDI3NjkuODI1NzY3MDQwMjUyNjg1NTQ2ODc1LCJuYmYiOjE2NTc1NDI3NjkuODI1Nzc4MDA3NTA3MzI0MjE4NzUsImV4cCI6MTY4OTA3ODc2OS42Mzk2MzM4OTM5NjY2NzQ4MDQ2ODc1LCJzdWIiOiI2MyIsInNjb3BlcyI6W119.FQgtcHRmccuPK9i7Asgdr6aQZ8B6CO-usISZz9TulrPEKDOSDaIyAQpEh1aF6jHzcLSRALWRMGFcNXMCFr5OXHA9FnAQVzskcR25BK_27niFdA7grqkyRG5jqYQuHoRXmWAx0jriwYlOwcWi9RPNj_8bboI8_t7gwzwVBcCEpsDZSKf0xcH6ZXYLisDxprN2meZtJzYohWB4ZSRCRfMqmNhE2Iqs21btJOHTGEXYSF6lr3FP_nZ-vn3pBCpcfDgUJD4Rw4eepHxq5QnZPRHzpTQGLGulaMQhcWSaoM8-F-QnotJzu26TIYUvqN6M0CmHuRc1ew7JdCsaMDPHHGzv43Dnq_N2wcEVFrElw0vpay7Q0wtHe1IhrF7ltf1DAf5MPR7rsTEPX_5P4cT9R1m_UWll8eo0GQDPlCJU7qWC21YEd-J_cTytHb1z_q8qJZHjyXkE6d29OKz57jkdOafaKsbBXa6TihEojzASyOfXfjwzjFfcXuxiWzdyWoVs_cdG6otuX6I5u0BKe-j0FnVNoRu6joJeM2ypjcartObcvPsr1px7aycNHkX6argmiUz7um3WervCmhADVlFKIG6dNZiCeooi_lc2zpbKusUFS_6wyGojDqlGRPdFlHctHsuKeKEObrS9PmmsEdynvDKPSZILaAbMtPoyFeTIMMuLxwU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "trade_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "users_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "quantity",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/sell_trade",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"sell_trade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trads_queue",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE4MTFlNGIzYThjNjQzZjk0YWQ3ZGNmODRmMWIzYmVjMzk3ODJiNGVmN2E1ZWE4MGRmN2ZmZjE2YWYyMmUwNzJhNThlYzFhYjAyMzdjODYiLCJpYXQiOjE2NTgxMzE1NzUuNTM3NTMyMDkxMTQwNzQ3MDcwMzEyNSwibmJmIjoxNjU4MTMxNTc1LjUzNzUzODA1MTYwNTIyNDYwOTM3NSwiZXhwIjoxNjg5NjY3NTc1LjQ3NTc1MDkyMzE1NjczODI4MTI1LCJzdWIiOiI2MyIsInNjb3BlcyI6W119.wzDR0fv-S9EnzPIUXzEfJz8FMqpbnuMA00tNzvFC2D4n8Eg6nmWGqMDk4fHnUPN_STf_O5XAI43kcNf0KhB4VWwupeGJEMlOmrlU5i1jxZmuudtAsaM6HJAwPqGrFRwA_2HDhTByY5txhWW_owOCdlPNxVIC3k62D7Vor0z7qMfemGtpXHH9NFmpfSTbWZOgUZKVkgVQdZgGoqWYxlopJ1MMy46aCgCMx5d1-h7_tzunOYpPouXfvhBcHuSWp7nWCnOxKQpprKg_9aSqq0QgINqHklnxLO9tY5h1qjaZtwefz6Ixz-Va7bX3-w5QgSvqXMjfa4dnXKoKF_CFkejjWUrTA9Y61UuXOc2He38u1u89sxin5WQkeclWuYdfwGVoZhx5Y0cAPJw-p1-jtsfJdRNXjE3VRoda49k-8Xl6Vm-ZlYcv-bb7ah4-HyKsF9sWGUxoReN0P-8oJU5_7uYGNnrX48-kNkOc1PszXwHlkxEU_Fvc92n8rSQFnfHg0DdStDhzy43ctIvIW4D1Dqizx4YHfd0M8aCdygS_XlmD9Z909bXVRMDiivvfFZQAO480hQ2v-_OWMYapxrOExVktYMbPSxo921a4l-xzrTLSRoxSoT2kA1Gp96yoEpzOEu8GOVeL4FW9SGdTfsuJa3zMUOuWikPl0WcF4_Db5sR3rbw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://app.hotpopstarz.com/api/trads_queue",
+					"protocol": "https",
+					"host": [
+						"app",
+						"hotpopstarz",
+						"com"
+					],
+					"path": [
+						"api",
+						"trads_queue"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

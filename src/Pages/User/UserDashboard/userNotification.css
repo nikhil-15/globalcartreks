@@ -1,0 +1,25 @@
+
+
+.notifications {
+  width: fit-content;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+
+span.notification-badge {
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  padding: 2px 7px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

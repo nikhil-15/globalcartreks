@@ -1,0 +1,134 @@
+.notification .notification-card:first-child {
+  margin: 50px 0px 20px;
+}
+
+.notification-card {
+  width: 95%;
+  border: 1px solid lightgray;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  min-height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 8px 3px 0px lightgrey;
+  position: relative;
+}
+
+.card-content {
+  padding-left: 15px;
+  display: flex;
+  justify-content: end;
+}
+
+.card-content h6 {
+  margin-top: 10px;
+}
+
+.card-msg {
+  display: flex;
+  align-items: center;
+}
+
+.card-msg p {
+  padding-left: 10px;
+  padding-right: 5px;
+  margin-bottom: 0px;
+  color: gray;
+  font-weight: 500;
+}
+
+.card-msg span {
+  font-weight: 700;
+  color: black;
+}
+
+.card-msg img {
+  margin-left: 10px;
+}
+
+.close-btn img {
+  margin-right: 5px;
+}
+
+.clear-all button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #0084ff;
+  transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.clear-all {
+  display: flex;
+  justify-content: end;
+}
+
+.card-msg img {
+  width: 66px;
+}
+
+.card-title_p h6 {
+  padding-left: 10px;
+  font-weight: 700;
+}
+
+.notification .no-data-container {
+  background: #f0f3fd;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px;
+}
+
+/* Clear Button */	
+.darkBg {	
+  background-color: rgba(0, 0, 0, 0.2);	
+  width: 100vw;	
+  height: 100vh;	
+  z-index: 0;	
+  top: 50vh;	
+  left: 50%;	
+  transform: translate(-50%, -50%);	
+  position: absolute;	
+  margin-top: 2rem;	
+}	
+.centered {	
+  position: fixed;	
+  top: 50%;	
+  left: 50%;	
+  transform: translate(-50%, -50%);	
+}	
+.notificationModal {	
+  width: 325px;	
+  height: auto;	
+  background: white;	
+  color: white;	
+  border-radius: 16px;	
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);	
+}	
+.notifyModalContent {	
+  padding: 10px;	
+  font-size: 14px;	
+  color: #2c3e50;	
+  text-align: center;	
+}	
+.notifyModalContent p {	
+  margin-bottom: 0px;	
+  font-size: 18px;	
+}	
+.popupBtn {	
+  display: flex;	
+  justify-content: space-evenly;	
+}	
+.popupBtn button {	
+  padding: 8px 27px;	
+}
