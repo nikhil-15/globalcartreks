@@ -276,7 +276,7 @@ function EditVendorProfile() {
                   setTimeout(() => {                        
                     setUpdateBtn('Update Bank Details');
                     setDisabled(false);
-                    navigate('/vendor-dashboard');
+                    // navigate('/vendor-dashboard');
                 }, 1500);
 
                 } else {
@@ -300,7 +300,7 @@ function EditVendorProfile() {
                         setTimeout(() => {                        
                           setCheckBtn('Check My Payouts');
                           setDisabled(false);
-                          navigate('/vendor-dashboard');
+                          // navigate('/vendor-dashboard');
                       }, 1500);
                 } else {
                     toast.error('Something went wrong');
