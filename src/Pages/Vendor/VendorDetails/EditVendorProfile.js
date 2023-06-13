@@ -53,7 +53,10 @@ function EditVendorProfile() {
         postalCode: auth.v_postal_code,
         file: auth.profile_pic
     });
-    console.log(editProfile);
+    const userAgent = window.navigator.userAgent;
+    const isiPhone = /iPhone|iPod/.test(userAgent);
+    const isAndroid = /Android/.test(userAgent);
+    
     useEffect(() => {
 
         const tierTypeForImageHideShow = async () => {
@@ -242,8 +245,12 @@ function EditVendorProfile() {
         Axios.post( API_BASE_URL + 'api/create_connect_account/' + auth.id)
             .then((response) => {
                 if (response.data.status == true) {
-                  window.open(response.data.stripe_url, '_blank');
-                  // window.location = response.data.stripe_url;
+                  if(isAndroid){
+                    window.open(response.data.stripe_url, '_blank');                    
+                  } else if (isiPhone) {
+                    window.location = response.data.stripe_url;
+                  }
+
                     setTimeout(() => {                        
                         setEnterBtn('Enter Bank Details');
                         setDisabled(false);
@@ -266,8 +273,12 @@ function EditVendorProfile() {
             .then((response) => {
               console.log(response);
                 if (response.data.status == true) {
-                  window.open(response.data.stripe_url, '_blank');
-                  // window.location = response.data.stripe_url;
+                  if(isAndroid){
+                    window.open(response.data.stripe_url, '_blank');                    
+                  } else if (isiPhone) {
+                    window.location = response.data.stripe_url;
+                  }
+
                   setTimeout(() => {                        
                     setUpdateBtn('Update Bank Details');
                     setDisabled(false);
@@ -290,13 +301,16 @@ function EditVendorProfile() {
         Axios.post( API_BASE_URL + 'api/check_my_payout/' + auth.id)
             .then((response) => {
                 if (response.data.status == true) {
-                        window.open(response.data.stripe_url, '_blank');
-                        // window.location = response.data.stripe_url;
-                        setTimeout(() => {                        
-                          setCheckBtn('Check My Payouts');
-                          setDisabled(false);
-                          // navigate('/vendor-dashboard');
-                      }, 1500);
+                    if(isAndroid){
+                      window.open(response.data.stripe_url, '_blank');                    
+                    } else if (isiPhone) {
+                      window.location = response.data.stripe_url;
+                    }
+                    setTimeout(() => {                        
+                      setCheckBtn('Check My Payouts');
+                      setDisabled(false);
+                      // navigate('/vendor-dashboard');
+                  }, 1500);
                 } else {
                     toast.error('Something went wrong');
                     setTimeout(() => {

@@ -36,7 +36,7 @@ function EditVendorProfile() {
     const [updateBtn, setUpdateBtn] = useState('Update Bank Details');
     const [checkBtn, setCheckBtn] = useState('Check My Payouts');
     const [loader, setLoader] = useState(true);
-  console.log(auth);
+  
     const [validator, showValidationMessage] = useValidator();
     const [editProfile, setEditProfile] = useState({
         userid: auth.id,
@@ -53,6 +53,9 @@ function EditVendorProfile() {
         postalCode: auth.v_postal_code,
         file: auth.profile_pic
     });
+    const userAgent = window.navigator.userAgent;
+    const isiPhone = /iPhone|iPod/.test(userAgent);
+    const isAndroid = /Android/.test(userAgent);
     
     useEffect(() => {
 
@@ -93,7 +96,7 @@ function EditVendorProfile() {
             setSubmittedQuoteCount(response.data.get_count);
             setAccDetails(response.data.acc_details);
             setAccDetailsCount(response.data.acc_details_count);
-        };
+        }; 
 
         tierTypeForImageHideShow();
         countryCodeList();
@@ -247,7 +250,11 @@ function EditVendorProfile() {
         Axios.post( API_BASE_URL + 'api/create_connect_account/' + auth.id)
             .then((response) => {
                 if (response.data.status == true) {
-                  window.open(response.data.stripe_url, '_blank');
+                  if(isAndroid){
+                    window.open(response.data.stripe_url, '_blank');                    
+                  } else if (isiPhone) {
+                    window.location = response.data.stripe_url;
+                  }
                   // window.location = response.data.stripe_url;
                     setTimeout(() => {                        
                         setEnterBtn('Enter Bank Details');
@@ -271,8 +278,12 @@ function EditVendorProfile() {
             .then((response) => {
               console.log(response);
                 if (response.data.status == true) {
-                  window.open(response.data.stripe_url, '_blank');
-                  // window.location = response.data.stripe_url;
+                  if(isAndroid){
+                    window.open(response.data.stripe_url, '_blank');                    
+                  } else if (isiPhone) {
+                    window.location = response.data.stripe_url;
+                  }
+                  
                   setTimeout(() => {                        
                     setUpdateBtn('Update Bank Details');
                     setDisabled(false);
@@ -295,13 +306,17 @@ function EditVendorProfile() {
         Axios.post( API_BASE_URL + 'api/check_my_payout/' + auth.id)
             .then((response) => {
                 if (response.data.status == true) {
-                        window.open(response.data.stripe_url, '_blank');
-                        // window.location = response.data.stripe_url;
-                        setTimeout(() => {                        
-                          setCheckBtn('Check My Payouts');
-                          setDisabled(false);
-                          // navigate('/vendor-dashboard');
-                      }, 1500);
+                  if(isAndroid){
+                    window.open(response.data.stripe_url, '_blank');                    
+                  } else if (isiPhone) {
+                    window.location = response.data.stripe_url;
+                  }
+                        
+                    setTimeout(() => {                        
+                      setCheckBtn('Check My Payouts');
+                      setDisabled(false);
+                      // navigate('/vendor-dashboard');
+                  }, 1500);
                 } else {
                     toast.error('Something went wrong');
                     setTimeout(() => {
