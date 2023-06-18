@@ -47,6 +47,8 @@ function CompleteVendorProfile() {
     const [submittedQuoteCount, setSubmittedQuoteCount] = useState([]);
     const [accDetails, setAccDetails] = useState([]);
     const [accDetailsCount, setAccDetailsCount] = useState([]);
+    const userAgent = window.navigator.userAgent;
+    const isiPhone = /iPhone|iPod/.test(userAgent);
 
     const existingMobile = (e) => {
         const checkMobile = e.target.value;
@@ -327,7 +329,7 @@ function CompleteVendorProfile() {
                             Email Address*
                           </label>
                           <input
-                            className="input-field disabled"
+                            className={`input-field  ${isiPhone ? 'safari-browser' : 'disabled'}`}
                             type="text"
                             name="email"
                             id="email"

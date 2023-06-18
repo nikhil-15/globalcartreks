@@ -137,7 +137,7 @@ function Ratings() {
             <div className="container-fluid">
                 <div className="registraion_wrrpers">
                     <div className="logo-block mb-xl">
-                        <img src="./assets/img/main-logo.png" alt="" />
+                        <img src="/assets/img/main-logo.png" alt="" />
                     </div>
                     <div className="rating-details">
                         <h5 className='heading5 tl-c mb'>Ratings & Reviews</h5>

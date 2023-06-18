@@ -1346,6 +1346,18 @@ p.send-text {
   color: #adacac !IMPORTANT;
 }
 
+.safari-browser{
+  color: #121212 !important;
+  /* opacity: 1;
+  -webkit-text-fill-color: #121212; */
+}
+
+/* .safari-browser .disabled{ */
+  /* color: #121212 !important; */
+  /* opacity: 1;
+  -webkit-text-fill-color: #121212; */
+/* } */
+
 
 /*Exit Popup*/
 #exitPopup {

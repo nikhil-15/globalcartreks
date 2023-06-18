@@ -46,6 +46,8 @@ function EditUserProfile() {
     postalCode: auth.postal_code,
     file: auth.profile_pic,
   });
+  const userAgent = window.navigator.userAgent;
+  const isiPhone = /iPhone|iPod/.test(userAgent);
   console.log(editProfile);
   // const userDetails = Axios({ API_BASE_URL } + 'api/user_details/' + auth.id);
   // console.log(userDetails);
@@ -314,7 +316,7 @@ function EditUserProfile() {
                         Email Address*
                       </label>
                       <input
-                        className="input-field disabled"
+                        className={`input-field ${isiPhone ? 'safari-browser' : 'disabled'}`}
                         type="text"
                         name="email"
                         id="email"

@@ -425,7 +425,7 @@ function EditVendorProfile() {
                           Email Address*
                         </label>
                         <input
-                          className="input-field disabled"
+                          className={`input-field ${isiPhone ? 'safari-browser' : 'disabled'}`}
                           type="text"
                           name="email"
                           id="email"

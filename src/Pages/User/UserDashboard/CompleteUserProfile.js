@@ -47,6 +47,8 @@ function CompleteUserProfile() {
         postalCode: auth.postal_code,
         file: auth.profile_pic
     });
+    const userAgent = window.navigator.userAgent;
+    const isiPhone = /iPhone|iPod/.test(userAgent);
     console.log(auth);
     console.log(editProfile);
     // const userDetails = Axios({ API_BASE_URL } + 'api/user_details/' + auth.id);
@@ -306,7 +308,7 @@ function CompleteUserProfile() {
                             Email Address*
                           </label>
                           <input
-                            className="input-field disabled"
+                            className={`input-field  ${isiPhone ? 'safari-browser' : 'disabled'}`}
                             type="text"
                             name="email"
                             id="email"
@@ -404,17 +406,32 @@ function CompleteUserProfile() {
                               onChange={(e) => {handleInput(e); selectedCountry(e)}}
                             >
                               <MenuItem value="Select Country" disabled={true}>Select country</MenuItem>
-                          {lists.map((item) => {
-                            return (
-                              <MenuItem
-                                key={item.id}
-                                value={item.id}
-                                selected={`${editProfile.country == item.id ? 'selected' : ''}`}
-                              >
-                                {item.name}
-                              </MenuItem>
-                            );
-                          })}
+                              {lists.map((item) => {
+                              if(item.id == '231'){
+                                return (
+                                  <MenuItem
+                                    key={item.id}
+                                    value={item.id}
+                                    selected={`${editProfile.country == item.id ? 'selected' : ''}`}
+                                  >
+                                    {item.name}
+                                  </MenuItem>
+                                );
+                              }
+                            })}
+                            {lists.map((item) => {
+                              if(item.id !== '231'){
+                                return (
+                                  <MenuItem
+                                    key={item.id}
+                                    value={item.id}
+                                    selected={`${editProfile.country == item.id ? 'selected' : ''}`}
+                                  >
+                                    {item.name}
+                                  </MenuItem>
+                                );
+                              }
+                            })}
                             </Select>
                             {/* <select
                               className="input-field"
