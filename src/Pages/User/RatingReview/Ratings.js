@@ -136,9 +136,9 @@ function Ratings() {
             </div>
             <div className="container-fluid">
                 <div className="registraion_wrrpers">
-                    <div className="logo-block mb-xl">
+                    {/* <div className="logo-block mb-xl">
                         <img src="/assets/img/main-logo.png" alt="" />
-                    </div>
+                    </div> */}
                     <div className="rating-details">
                         <h5 className='heading5 tl-c mb'>Ratings & Reviews</h5>
                         <p className='small-p tl-c'>Thank you for using Global CarTreks.com.<br /> We hope you enjoyed your trip. Please show your appreciation to the Transportation Provider by leaving a tip.</p>

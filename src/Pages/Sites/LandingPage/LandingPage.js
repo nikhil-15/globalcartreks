@@ -3,9 +3,11 @@ import { useNavigate, Link } from "react-router-dom";
 import "../LandingPage/landingpage.css";
 import ReactTooltip from "react-tooltip";
 import { getLocalStorageAuth } from '../../../Auth/Auth.service';
+import { Button, Modal, SwipeableDrawer } from '@mui/material';
 
 const LandingPage = () => {
 
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const auth = getLocalStorageAuth();
 
@@ -16,6 +18,14 @@ const LandingPage = () => {
   const setUS = () => {
     localStorage.setItem('appType', 2);
   }
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     // window.scrollTo(0, 0);
@@ -79,7 +89,9 @@ const LandingPage = () => {
           <ReactTooltip id="comingSoon" place="bottom" effect="solid" event="click">
             Coming soon
           </ReactTooltip>
+          <Link className='transport-link'  to="/tp-terms" onClick={setUS}>Click here for Transportation-Providers Join</Link>
         </div>
+        
 
         {/* <div class="landingpage-text">
           <h4>How GlobalCarTreks.com works</h4>
@@ -115,14 +127,54 @@ const LandingPage = () => {
         <div
           class="btm-btn"
           style={{
-            margin: "2rem 5px",
+            margin: "2rem 5px 0 5px",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
           <p>To book a Car and Driver in Europe</p>
           <Link to="/register-option" onClick={setEU}>Click Here</Link>
+          <Link className='transport-link'  to="/tp-terms" onClick={setEU}>Click here for Transportation-Providers Join</Link>
         </div>
+         
+      </div>
+      
+      <div className='work-modal-pop'>
+        <Button className='modal-link' onClick={handleOpen}>How GlobalCarTreks.com works</Button>
+          <SwipeableDrawer
+                anchor="bottom"
+                open={open}
+                onClose={handleClose}
+                // open={state[anchor]}
+                // onClose={toggleDrawer(anchor, false)}
+                // onOpen={toggleDrawer(anchor, true)}
+              >
+          <div style={{backgroundColor:'#fff'}}>
+            <Button className='close-icn' onClick={handleClose}>
+              <span class="svg-icon svg-icon-1">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+                      <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
+                  </svg>
+              </span>
+            </Button>
+              <div className="landingpage-text">
+                <h4>How GlobalCarTreks.com works</h4>
+                <ul>
+                    <li>Traveler/Consumer Makes a Request</li>  
+                    <li>Receives Bids</li>
+                    <li>Books the Service</li>
+                    <li>Makes Payment</li>
+                    <li>
+                        This is a marketplace like Hotels.com and Airbnb.com. Here you can find Transportation Providers for trips
+                    </li>
+                    <li>No cost to register and receive bids</li>
+                    <p><span>Note:</span> For more details, see on Site or App :</p>
+                    <p>(1) How GlobalCarTreks.com works and <br></br>(2) FAQ's for Travelers</p>
+                </ul>
+              </div>
+          </div>
+        </SwipeableDrawer>
       </div>
 
       {/* <div class="state-btn landingpage-booking">
@@ -135,6 +187,7 @@ const LandingPage = () => {
           <Link to="/login">Click Here</Link>
         </div>
       </div> */}
+
     </>
   );
 };

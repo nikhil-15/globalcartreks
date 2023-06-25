@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./TpTerms.css";
 
@@ -6,8 +6,15 @@ const TpTerms = () => {
   const navigate = useNavigate();
   const [pageHeading, setPageHeading] = useState("");
   const [loader, setLoader] = useState(true);
+  const scrollRef = useRef(null);
+
 
   useEffect(() => {
+    if (window.location.hash === '#top') {
+      // Scroll to the top of the target div after redirect
+      scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    
     const countryList = async () => {
       setLoader(false);
       setPageHeading(
@@ -32,7 +39,7 @@ const TpTerms = () => {
           <div className="page-heading">
             <h3 style={{fontSize:"19px"}}>{pageHeading}</h3>
           </div>
-          <div className="page-details">
+          <div className="page-details" ref={scrollRef}>
             <div class="col-md-12">
               <div class="container reg_terms sec-info-content tpTerms">
                 <ul>

@@ -1636,3 +1636,10 @@ p.send-text {
 
 
 /* dipti */
+
+#accordionExample123 h2#headingTwo {
+  margin-bottom: 8px;
+}
+.MuiSelect-select.MuiSelect-select {
+  font-weight: 400;
+}

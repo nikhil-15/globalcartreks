@@ -201,7 +201,8 @@ function EditUserProfile() {
           setCityList(response.data.data);
           setEditProfile(prevState => ({
             ...prevState,
-            city: "",  // Replace newValue with the new value for the city property
+            city: "",
+            city_autofill: ""  // Replace newValue with the new value for the city property
           }));
         }
       })
@@ -555,7 +556,7 @@ function EditUserProfile() {
                           },
                         })}
                       </div>
-                      {editProfile.country == '' || editProfile.state == '' ? (
+                      {editProfile.country == '' && editProfile.state == '' ? (
                         <div style={errorMsg}>{cityErr}</div>
                       ) : (
                         ''

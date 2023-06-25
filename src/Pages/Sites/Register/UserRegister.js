@@ -208,7 +208,7 @@ function UserRegister() {
         const pass = event.target.value;
         const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
         const isOk = re.test(pass);
-        if (!isOk && userRegistration.pass != '') {
+        if (!isOk) {
             setPassErr("Password should contain at least 1 capital letter, small letters, 1 of these special characters !@#$%^&*_ and numbers and minimum 8 digits");
             return false;
         } else {

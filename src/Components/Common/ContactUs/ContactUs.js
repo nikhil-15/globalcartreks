@@ -138,7 +138,7 @@ function ContactUs() {
                                 <h1 className='my-3'>Contact Us</h1>
                                 <div className='form_groupDiv'>
                                     <label className="form-label" htmlFor='first_name'>Full Name*</label>
-                                    <input type="text" className="form-control" id="name" placeholder="Enter Full Name *" name="name" value={inputValues.name} onChange={e => { handleChange(e); onNameChange(e) }} />
+                                    <input type="text" className="form-control" id="name" placeholder="Enter Full Name *" name="name" maxLength={50} value={inputValues.name} onChange={e => { handleChange(e); onNameChange(e) }} />
                                     <div style={errorMsg}>{validator.message("name", inputValues.name, "required|min:4", {
                                         messages: {
                                             required: "Enter your name",
@@ -155,7 +155,7 @@ function ContactUs() {
                                 </div>
                                 <div className='form_groupDiv'>
                                     <label className="form-label" htmlFor='email'>Email*</label>
-                                    <input type="text" className="form-control" id="email" placeholder="Enter Email *" name="email" value={inputValues.email} onChange={handleChange} />
+                                    <input type="text" className="form-control" id="email" placeholder="Enter Email *" name="email" maxLength={50} value={inputValues.email} onChange={handleChange} />
                                     <div style={errorMsg}>{validator.message("email", inputValues.email, "required|email", {
                                         messages: {
                                             required: "Enter your email",
