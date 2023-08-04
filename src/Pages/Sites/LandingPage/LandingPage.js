@@ -82,6 +82,7 @@ const LandingPage = () => {
             alignItems: "center",
           }}
         >
+          <Button className='modal-link' onClick={handleOpen}>How GlobalCarTreks.com works</Button>
           <p>To book a Limousine in the U.S.</p>
           <Link to="/register-option" onClick={setUS}>Click Here</Link>
           {/* <button className="landingBtn" to="" data-tip data-for="comingSoon" >Click Here</button> */}
@@ -89,7 +90,7 @@ const LandingPage = () => {
           <ReactTooltip id="comingSoon" place="bottom" effect="solid" event="click">
             Coming soon
           </ReactTooltip>
-          <Link className='transport-link'  to="/tp-terms" onClick={setUS}>Click here for Transportation-Providers Join</Link>
+          <Link className='transport-link'  to="/tp-terms" onClick={setUS}>Transportation Providers - Join: Click Here</Link>
         </div>
         
 
@@ -134,13 +135,13 @@ const LandingPage = () => {
         >
           <p>To book a Car and Driver in Europe</p>
           <Link to="/register-option" onClick={setEU}>Click Here</Link>
-          <Link className='transport-link'  to="/tp-terms" onClick={setEU}>Click here for Transportation-Providers Join</Link>
+          <Link className='transport-link'  to="/tp-terms" onClick={setEU}>Transportation Providers - Join: Click Here</Link>
         </div>
          
       </div>
       
       <div className='work-modal-pop'>
-        <Button className='modal-link' onClick={handleOpen}>How GlobalCarTreks.com works</Button>
+        
           <SwipeableDrawer
                 anchor="bottom"
                 open={open}

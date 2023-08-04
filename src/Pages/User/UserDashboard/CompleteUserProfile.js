@@ -23,7 +23,7 @@ function CompleteUserProfile() {
     const [userDetails, setUserDetails] = useState([]);
     const [mobileErr, setMobileErr] = useState([]);
     const [countryCodeLists, setCountryCodeLists] = useState([]);
-    const [cityErr, setCityErr] = useState('Select country and state first');
+    const [cityErr, setCityErr] = useState('');
     const [picture, setPicture] = useState('');
     const [cityAutofill, setCityAutofill] = useState('');
     const [newCity, setNewCity] = useState('')
@@ -260,6 +260,19 @@ function CompleteUserProfile() {
         setCityAutofill('');
         $('#autosecl').hide();
     }
+
+    const onCityChange = (e) => {
+      const name = e.target.value;
+      const re = new RegExp("^([ \u00c0-\u01ffa-zA-Z'\-])+$");
+      const isOk = re.test(name);
+      if (!isOk) {
+          setCityErr("Enter characters for city name");
+          return false;
+      } else {
+          setCityErr();
+          return true;
+      }
+  }
 
     const errorMsg = {
         color: 'red'
@@ -551,8 +564,9 @@ function CompleteUserProfile() {
                             name="city_autofill"
                             id="city_autofill"
                             value={editProfile.city_autofill}
-                            onChange={handleInput}
+                            onChange={e => {handleInput(e); onCityChange(e)}}
                             onKeyUp={cityOnChange}
+                            autoComplete='off'
                           />
                           <div style={errorMsg}>
                             {validator.message(
@@ -566,12 +580,12 @@ function CompleteUserProfile() {
                               },
                             )}
                           </div>
-                          {editProfile.country == '' && editProfile.state == '' ? (
+                          {editProfile.city_autofill !== '' ? (
                             <div style={errorMsg}>{cityErr}</div>
                           ) : (
                             ''
                           )}
-                          <div className="autosecl" id="autosecl" style={{ display: 'none' }}>
+                          {/* <div className="autosecl" id="autosecl" style={{ display: 'none' }}>
                             {editProfile.state != '' && editProfile.city_autofill != ''
                               ? Array.isArray(cityAutofill) && cityAutofill.length
                                 ? cityAutofill.map((item) => {
@@ -587,7 +601,7 @@ function CompleteUserProfile() {
                                   })
                                 : ''
                               : ''}
-                          </div>
+                          </div> */}
                         </div>
 
                         <div className="form_groupDiv edit_profile">

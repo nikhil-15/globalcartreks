@@ -1643,3 +1643,13 @@ p.send-text {
 .MuiSelect-select.MuiSelect-select {
   font-weight: 400;
 }
+
+.upper_tabs ul.nav-tabs li{
+  flex-shrink: 0;
+}
+
+@media only screen and (max-width: 375px){
+  .edit_profile .calendar-icon{
+    right: 17px;
+  }
+}
