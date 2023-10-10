@@ -137,7 +137,7 @@ function ManageQuotation() {
       formData.append("quot_id", tpQId);
       formData.append("user_id", tpRId);
 
-      Axios.post( API_BASE_URL + "api/insert_compare", formData).then((res) => {
+      Axios.post(API_BASE_URL + "api/insert_compare", formData).then((res) => {
         if (res.data.status == true) {
           navigate("/manage-Quotation/3");
           window.location.reload();
@@ -153,7 +153,7 @@ function ManageQuotation() {
 
   const handleRemoveRequest = (q_id, i) => {
     $("#removeReq" + i).prop("disabled", true);
-    Axios.post( API_BASE_URL + "api/cancel_req_by_user/" + q_id).then((res) => {
+    Axios.post(API_BASE_URL + "api/cancel_req_by_user/" + q_id).then((res) => {
       if (res.data.status == true) {
         toast.success(res.data.data);
         setTimeout(() => {
@@ -198,7 +198,7 @@ function ManageQuotation() {
 
     const compareDetails = async () => {
       const response = await Axios(
-         API_BASE_URL + "api/get_compare_details/" + id + "/" + qId
+        API_BASE_URL + "api/get_compare_details/" + id + "/" + qId
       );
       if (response.data.status === true) {
         console.log('compare_details', response);
@@ -221,7 +221,7 @@ function ManageQuotation() {
 
     const vendorList = async () => {
       const response = await Axios(
-         API_BASE_URL + "api/get_vendor_quotations/" + r_id + "/" + q_id
+        API_BASE_URL + "api/get_vendor_quotations/" + r_id + "/" + q_id
       );
       if (response.data.status === true) {
         // console.log('vendor list', response);
@@ -234,7 +234,7 @@ function ManageQuotation() {
     vendorList();
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const getTpValues = (qId, qsId, vId, rId, i) => {
     if ($("#selectTp" + i).is(":checked")) {
@@ -323,14 +323,14 @@ function ManageQuotation() {
       const clarificationMsg = async () => {
         const response = await Axios(
           API_BASE_URL +
-            "api/get_clarification_msg/" +
-            qsId +
-            "/" +
-            qId +
-            "/" +
-            vId +
-            "/" +
-            uId
+          "api/get_clarification_msg/" +
+          qsId +
+          "/" +
+          qId +
+          "/" +
+          vId +
+          "/" +
+          uId
         );
         // console.log(response.data.output)
         if (response.data.status === true) {
@@ -358,14 +358,14 @@ function ManageQuotation() {
     const clarificationMsg = async () => {
       const response = await Axios(
         API_BASE_URL +
-          "api/get_clarification_msg/" +
-          qsId +
-          "/" +
-          qId +
-          "/" +
-          vId +
-          "/" +
-          uId
+        "api/get_clarification_msg/" +
+        qsId +
+        "/" +
+        qId +
+        "/" +
+        vId +
+        "/" +
+        uId
       );
       // console.log(response.data.output)
       if (response.data.status === true) {
@@ -410,11 +410,11 @@ function ManageQuotation() {
     $("#u_check" + i).attr("disabled", true);
     Axios.post(
       API_BASE_URL +
-        "api/active_deactive_submit_quote" +
-        "/" +
-        qId +
-        "/" +
-        status
+      "api/active_deactive_submit_quote" +
+      "/" +
+      qId +
+      "/" +
+      status
     ).then((res) => {
       if (res.data.status == true) {
         if (res.data.active_status == 1) {
@@ -453,11 +453,11 @@ function ManageQuotation() {
     $("#u_check1" + i).attr("disabled", true);
     Axios.post(
       API_BASE_URL +
-        "api/active_deactive_recive_quot" +
-        "/" +
-        qId +
-        "/" +
-        status
+      "api/active_deactive_recive_quot" +
+      "/" +
+      qId +
+      "/" +
+      status
     ).then((res) => {
       if (res.data.status == true) {
         if (res.data.active_status == 1) {
@@ -550,192 +550,192 @@ function ManageQuotation() {
     rejectedQuotations();
   }, []);
 
-//   if (param.tab_id == 2) {
-//     var position = $(".tabs li").position();
-//     var corresponding = "contentTwo";
-//     // eslint-disable-next-line no-restricted-globals
-//     scroll = $(".tabs").scrollLeft();
-//     $(".tabs").animate(
-//       {
-//         // eslint-disable-next-line no-restricted-globals
-//         scrollLeft: scroll + 180 - 90,
-//       },
-//       200
-//     );
-//     $(".tabContent .tabsdiv").hide();
+  //   if (param.tab_id == 2) {
+  //     var position = $(".tabs li").position();
+  //     var corresponding = "contentTwo";
+  //     // eslint-disable-next-line no-restricted-globals
+  //     scroll = $(".tabs").scrollLeft();
+  //     $(".tabs").animate(
+  //       {
+  //         // eslint-disable-next-line no-restricted-globals
+  //         scrollLeft: scroll + 180 - 90,
+  //       },
+  //       200
+  //     );
+  //     $(".tabContent .tabsdiv").hide();
 
-//     $(".tabsdiv.contentTwo").toggle();
-//   } else if (param.tab_id == 3) {
-//     var position = $(".tabs li").position();
-//     // console.log(position);
-//     var corresponding = $(".tabs li").data("id");
-//     // eslint-disable-next-line no-restricted-globals
-//     scroll = $(".tabs").scrollLeft();
-//     $(".tabs").animate(
-//       {
-//         // eslint-disable-next-line no-restricted-globals
-//         scrollLeft: scroll + 350 - 90,
-//       },
-//       200
-//     );
-//     $(".tabContent .tabsdiv").hide();
-//     $(".tabsdiv.contentThree").toggle();
-//   } else if (param.tab_id == 4) {
-//     var position = $(".tabs li").position();
-//     // console.log(position);
-//     var corresponding = $(".tabs li").data("id");
-//     // eslint-disable-next-line no-restricted-globals
-//     scroll = $(".tabs").scrollLeft();
-//     $(".tabs").animate(
-//       {
-//         // eslint-disable-next-line no-restricted-globals
-//         scrollLeft: scroll + 530 - 90,
-//       },
-//       200
-//     );
-//     $(".tabContent .tabsdiv").hide();
-//     $(".tabsdiv.contentFour").toggle();
-//   } else if (param.tab_id == 5) {
-//     var position = $(".tabs li").position();
-//     // console.log(position);
-//     var corresponding = $(".tabs li").data("id");
-//     // eslint-disable-next-line no-restricted-globals
-//     scroll = $(".tabs").scrollLeft();
-//     $(".tabs").animate(
-//       {
-//         // eslint-disable-next-line no-restricted-globals
-//         scrollLeft: scroll + 680 - 90,
-//       },
-//       200
-//     );
-//     $(".tabContent .tabsdiv").hide();
-//     $(".tabsdiv.contentFive").toggle();
-//   } else if (param.tab_id == 6) {
-//     var position = $(".tabs li").position();
-//     // console.log(position);
-//     var corresponding = $(".tabs li").data("id");
-//     // eslint-disable-next-line no-restricted-globals
-//     scroll = $(".tabs").scrollLeft();
-//     $(".tabs").animate(
-//       {
-//         // eslint-disable-next-line no-restricted-globals
-//         scrollLeft: scroll + 680 - 90,
-//       },
-//       200
-//     );
-//     $(".tabContent .tabsdiv").hide();
-//     $(".tabsdiv.contentSix").toggle();
-//   } else {
-//     //Scrollable Tabs
-//     $(".tabContent .tabsdiv:not(:first)").toggle();
+  //     $(".tabsdiv.contentTwo").toggle();
+  //   } else if (param.tab_id == 3) {
+  //     var position = $(".tabs li").position();
+  //     // console.log(position);
+  //     var corresponding = $(".tabs li").data("id");
+  //     // eslint-disable-next-line no-restricted-globals
+  //     scroll = $(".tabs").scrollLeft();
+  //     $(".tabs").animate(
+  //       {
+  //         // eslint-disable-next-line no-restricted-globals
+  //         scrollLeft: scroll + 350 - 90,
+  //       },
+  //       200
+  //     );
+  //     $(".tabContent .tabsdiv").hide();
+  //     $(".tabsdiv.contentThree").toggle();
+  //   } else if (param.tab_id == 4) {
+  //     var position = $(".tabs li").position();
+  //     // console.log(position);
+  //     var corresponding = $(".tabs li").data("id");
+  //     // eslint-disable-next-line no-restricted-globals
+  //     scroll = $(".tabs").scrollLeft();
+  //     $(".tabs").animate(
+  //       {
+  //         // eslint-disable-next-line no-restricted-globals
+  //         scrollLeft: scroll + 530 - 90,
+  //       },
+  //       200
+  //     );
+  //     $(".tabContent .tabsdiv").hide();
+  //     $(".tabsdiv.contentFour").toggle();
+  //   } else if (param.tab_id == 5) {
+  //     var position = $(".tabs li").position();
+  //     // console.log(position);
+  //     var corresponding = $(".tabs li").data("id");
+  //     // eslint-disable-next-line no-restricted-globals
+  //     scroll = $(".tabs").scrollLeft();
+  //     $(".tabs").animate(
+  //       {
+  //         // eslint-disable-next-line no-restricted-globals
+  //         scrollLeft: scroll + 680 - 90,
+  //       },
+  //       200
+  //     );
+  //     $(".tabContent .tabsdiv").hide();
+  //     $(".tabsdiv.contentFive").toggle();
+  //   } else if (param.tab_id == 6) {
+  //     var position = $(".tabs li").position();
+  //     // console.log(position);
+  //     var corresponding = $(".tabs li").data("id");
+  //     // eslint-disable-next-line no-restricted-globals
+  //     scroll = $(".tabs").scrollLeft();
+  //     $(".tabs").animate(
+  //       {
+  //         // eslint-disable-next-line no-restricted-globals
+  //         scrollLeft: scroll + 680 - 90,
+  //       },
+  //       200
+  //     );
+  //     $(".tabContent .tabsdiv").hide();
+  //     $(".tabsdiv.contentSix").toggle();
+  //   } else {
+  //     //Scrollable Tabs
+  //     $(".tabContent .tabsdiv:not(:first)").toggle();
 
-//     // hide the previous button
-//     $(".previous").hide();
+  //     // hide the previous button
+  //     $(".previous").hide();
 
-//     $(".tabs li").on("click", function () {
-//       // if ($(this).is(':last-child')) {
-//       //     $('.next').hide();
-//       // } else {
-//       //     $('.next').show();
-//       // }
+  //     $(".tabs li").on("click", function () {
+  //       // if ($(this).is(':last-child')) {
+  //       //     $('.next').hide();
+  //       // } else {
+  //       //     $('.next').show();
+  //       // }
 
-//       // if ($(this).is(':first-child')) {
-//       //     $('.previous').hide();
-//       // } else {
-//       //     $('.previous').show();
-//       // }
+  //       // if ($(this).is(':first-child')) {
+  //       //     $('.previous').hide();
+  //       // } else {
+  //       //     $('.previous').show();
+  //       // }
 
-//       var position = $(this).position();
-//       var corresponding = $(this).data("id");
-//       // console.log(corresponding);
-//       // scroll to clicked tab with a little gap left to show previous tabs
-//       // eslint-disable-next-line no-restricted-globals
-//       scroll = $(".tabs").scrollLeft();
-//       // console.log(scroll)
-//       $(".tabs").animate(
-//         {
-//           // eslint-disable-next-line no-restricted-globals
-//           scrollLeft: scroll + position.left - 90,
-//         },
-//         200
-//       );
+  //       var position = $(this).position();
+  //       var corresponding = $(this).data("id");
+  //       // console.log(corresponding);
+  //       // scroll to clicked tab with a little gap left to show previous tabs
+  //       // eslint-disable-next-line no-restricted-globals
+  //       scroll = $(".tabs").scrollLeft();
+  //       // console.log(scroll)
+  //       $(".tabs").animate(
+  //         {
+  //           // eslint-disable-next-line no-restricted-globals
+  //           scrollLeft: scroll + position.left - 90,
+  //         },
+  //         200
+  //       );
 
-//       // hide all content divs
-//       $(".tabContent .tabsdiv").hide();
+  //       // hide all content divs
+  //       $(".tabContent .tabsdiv").hide();
 
-//       // show content of corresponding tab
-//       $(".tabsdiv." + corresponding).toggle();
+  //       // show content of corresponding tab
+  //       $(".tabsdiv." + corresponding).toggle();
 
-//       // remove active class from currently not active tabs
-//       $(".tabs li").removeClass("active");
+  //       // remove active class from currently not active tabs
+  //       $(".tabs li").removeClass("active");
 
-//       // add active class to clicked tab
-//       $(this).addClass("active");
-//     });
-//   }
+  //       // add active class to clicked tab
+  //       $(this).addClass("active");
+  //     });
+  //   }
 
   //     //Scrollable Tabs
   //     // $('.tabContent .tabsdiv:not(:first)').toggle();
 
   // hide the previous button
-//   $(".previous").hide();
+  //   $(".previous").hide();
 
-//   $(".tabs li").on("click", function () {
-//     console.log("clicked");
-//     // if ($(this).is(':last-child')) {
-//     //     $('.next').hide();
-//     // } else {
-//     //     $('.next').show();
-//     // }
+  //   $(".tabs li").on("click", function () {
+  //     console.log("clicked");
+  //     // if ($(this).is(':last-child')) {
+  //     //     $('.next').hide();
+  //     // } else {
+  //     //     $('.next').show();
+  //     // }
 
-//     // if ($(this).is(':first-child')) {
-//     //     $('.previous').hide();
-//     // } else {
-//     //     $('.previous').show();
-//     // }
+  //     // if ($(this).is(':first-child')) {
+  //     //     $('.previous').hide();
+  //     // } else {
+  //     //     $('.previous').show();
+  //     // }
 
-//     var position = $(this).position();
-//     var corresponding = $(this).data("id");
-//     // console.log(corresponding);
+  //     var position = $(this).position();
+  //     var corresponding = $(this).data("id");
+  //     // console.log(corresponding);
 
-//     // scroll to clicked tab with a little gap left to show previous tabs
-//     // eslint-disable-next-line no-restricted-globals
-//     scroll = $(".tabs").scrollLeft();
-//     // console.log(scroll)
-//     $(".tabs").animate(
-//       {
-//         // eslint-disable-next-line no-restricted-globals
-//         left: "-=50px",
-//       },
-//       "slow"
-//     );
+  //     // scroll to clicked tab with a little gap left to show previous tabs
+  //     // eslint-disable-next-line no-restricted-globals
+  //     scroll = $(".tabs").scrollLeft();
+  //     // console.log(scroll)
+  //     $(".tabs").animate(
+  //       {
+  //         // eslint-disable-next-line no-restricted-globals
+  //         left: "-=50px",
+  //       },
+  //       "slow"
+  //     );
 
-//     // hide all content divs
-//     $(".tabContent .tabsdiv").hide();
+  //     // hide all content divs
+  //     $(".tabContent .tabsdiv").hide();
 
-//     // show content of corresponding tab
-//     $(".tabsdiv." + corresponding).toggle();
+  //     // show content of corresponding tab
+  //     $(".tabsdiv." + corresponding).toggle();
 
-//     // remove active class from currently not active tabs
-//     $(".tabs li").removeClass("active");
+  //     // remove active class from currently not active tabs
+  //     $(".tabs li").removeClass("active");
 
-//     // add active class to clicked tab
-//     $(this).addClass("active");
+  //     // add active class to clicked tab
+  //     $(this).addClass("active");
 
-//     // if(corresponding == 'contentOne'){
-//     //     navigate('/manage-Quotation/1');
-//     // } else if(corresponding == 'contentTwo'){
-//     //     navigate('/manage-Quotation/2');
-//     // } else if(corresponding == 'contentThree'){
-//     //     navigate('/manage-Quotation/3');
-//     // } else if(corresponding == 'contentFour'){
-//     //     navigate('/manage-Quotation/4');
-//     // } else if(corresponding == 'contentFive'){
-//     //     navigate('/manage-Quotation/5');
-//     // } else if(corresponding == 'contentSix'){
-//     //     navigate('/manage-Quotation/6');
-//     // }
-//   });
+  //     // if(corresponding == 'contentOne'){
+  //     //     navigate('/manage-Quotation/1');
+  //     // } else if(corresponding == 'contentTwo'){
+  //     //     navigate('/manage-Quotation/2');
+  //     // } else if(corresponding == 'contentThree'){
+  //     //     navigate('/manage-Quotation/3');
+  //     // } else if(corresponding == 'contentFour'){
+  //     //     navigate('/manage-Quotation/4');
+  //     // } else if(corresponding == 'contentFive'){
+  //     //     navigate('/manage-Quotation/5');
+  //     // } else if(corresponding == 'contentSix'){
+  //     //     navigate('/manage-Quotation/6');
+  //     // }
+  //   });
 
   // $('div a').on('click',function(e){
   //     e.preventDefault();
@@ -800,6 +800,30 @@ function ManageQuotation() {
     color: "red",
   };
 
+  // Close tool tip
+
+  function toolTipClose(event) {
+    // Get a reference to the tooltip
+    var tooltip = document.getElementById('foo-foo56');
+
+    // Check if the click target is not the tooltip and not its trigger
+    if (
+      tooltip &&
+      tooltip.classList.contains('show')
+    ) {
+      // Remove the "show" class from the tooltip
+      tooltip.classList.remove('show');
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', toolTipClose);
+
+    return () => {
+      document.removeEventListener('click', toolTipClose);
+    };
+  }, []);
+
   return (
     <>
       {loader ? (
@@ -821,20 +845,19 @@ function ManageQuotation() {
                     role="presentation"
                   >
                     {/* <NavLink className="inner_tab" to="/manage-Quotation/1"> */}
-                      <button
-                        className={`nav-link ${
-                          param.tab_id == 1 ? "active" : ""
+                    <button
+                      className={`nav-link ${param.tab_id == 1 ? "active" : ""
                         }`}
-                        id="home-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#Submited"
-                        type="button"
-                        role="tab"
-                        aria-controls="home"
-                        aria-selected="true"
-                      >
-                        Submitted Requests
-                      </button>
+                      id="home-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#Submited"
+                      type="button"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                    >
+                      Submitted Requests
+                    </button>
                     {/* </NavLink> */}
                   </li>
                   <li
@@ -843,20 +866,19 @@ function ManageQuotation() {
                     role="presentation"
                   >
                     {/* <NavLink className="inner_tab" to="/manage-Quotation/2"> */}
-                      <button
-                        className={`nav-link ${
-                          param.tab_id == 2 ? "active" : ""
+                    <button
+                      className={`nav-link ${param.tab_id == 2 ? "active" : ""
                         }`}
-                        id="profile-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#Received"
-                        type="button"
-                        role="tab"
-                        aria-controls="Received"
-                        aria-selected="false"
-                      >
-                        Received Quotations
-                      </button>
+                      id="profile-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#Received"
+                      type="button"
+                      role="tab"
+                      aria-controls="Received"
+                      aria-selected="false"
+                    >
+                      Received Quotations
+                    </button>
                     {/* </NavLink> */}
                   </li>
                   <li
@@ -865,20 +887,19 @@ function ManageQuotation() {
                     role="presentation"
                   >
                     {/* <NavLink className="inner_tab" to="/manage-Quotation/3"> */}
-                      <button
-                        className={`nav-link ${
-                          param.tab_id == 3 ? "active" : ""
+                    <button
+                      className={`nav-link ${param.tab_id == 3 ? "active" : ""
                         }`}
-                        id="contact-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#Compare"
-                        type="button"
-                        role="tab"
-                        aria-controls="Compare"
-                        aria-selected="false"
-                      >
-                        Compare Quotations
-                      </button>
+                      id="contact-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#Compare"
+                      type="button"
+                      role="tab"
+                      aria-controls="Compare"
+                      aria-selected="false"
+                    >
+                      Compare Quotations
+                    </button>
                     {/* </NavLink> */}
                   </li>
                   <li
@@ -887,20 +908,19 @@ function ManageQuotation() {
                     role="presentation"
                   >
                     {/* <NavLink className="inner_tab" to="/manage-Quotation/4"> */}
-                      <button
-                        className={`nav-link ${
-                          param.tab_id == 4 ? "active" : ""
+                    <button
+                      className={`nav-link ${param.tab_id == 4 ? "active" : ""
                         }`}
-                        id="tp-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#TpProvider"
-                        type="button"
-                        role="tab"
-                        aria-controls="TpProvider"
-                        aria-selected="false"
-                      >
-                        Accepted Quotes
-                      </button>
+                      id="tp-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#TpProvider"
+                      type="button"
+                      role="tab"
+                      aria-controls="TpProvider"
+                      aria-selected="false"
+                    >
+                      Accepted Quotes
+                    </button>
                     {/* </NavLink> */}
                   </li>
                   <li
@@ -909,20 +929,19 @@ function ManageQuotation() {
                     role="presentation"
                   >
                     {/* <NavLink className="inner_tab" to="/manage-Quotation/5"> */}
-                      <button
-                        className={`nav-link ${
-                          param.tab_id == 5 ? "active" : ""
+                    <button
+                      className={`nav-link ${param.tab_id == 5 ? "active" : ""
                         }`}
-                        id="expired-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#expired"
-                        type="button"
-                        role="tab"
-                        aria-controls="expired"
-                        aria-selected="false"
-                      >
-                        Expired Quotations
-                      </button>
+                      id="expired-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#expired"
+                      type="button"
+                      role="tab"
+                      aria-controls="expired"
+                      aria-selected="false"
+                    >
+                      Expired Quotations
+                    </button>
                     {/* </NavLink> */}
                   </li>
                   <li
@@ -931,29 +950,27 @@ function ManageQuotation() {
                     role="presentation"
                   >
                     {/* <NavLink className="inner_tab" to="/manage-Quotation/6"> */}
-                      <button
-                        className={`nav-link ${
-                          param.tab_id == 6 ? "active" : ""
+                    <button
+                      className={`nav-link ${param.tab_id == 6 ? "active" : ""
                         }`}
-                        id="rejected-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#rejected"
-                        type="button"
-                        role="tab"
-                        aria-controls="rejected"
-                        aria-selected="false"
-                      >
-                        Rejected Quotations
-                      </button>
+                      id="rejected-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#rejected"
+                      type="button"
+                      role="tab"
+                      aria-controls="rejected"
+                      aria-selected="false"
+                    >
+                      Rejected Quotations
+                    </button>
                     {/* </NavLink> */}
                   </li>
                 </ul>
               </div>
               <div className="tab-content" id="myTabContent">
                 <div
-                  className={`tab-pane fade ${
-                    param.tab_id == 1 ? "show active" : ""
-                  }`}
+                  className={`tab-pane fade ${param.tab_id == 1 ? "show active" : ""
+                    }`}
                   id="Submited"
                   role="tabpanel"
                   aria-labelledby="home-tab"
@@ -1134,9 +1151,8 @@ function ManageQuotation() {
                   </div>
                 </div>
                 <div
-                  className={`tab-pane fade ${
-                    param.tab_id == 2 ? "show active" : ""
-                  }`}
+                  className={`tab-pane fade ${param.tab_id == 2 ? "show active" : ""
+                    }`}
                   id="Received"
                   role="tabpanel"
                   aria-labelledby="profile-tab"
@@ -1244,76 +1260,75 @@ function ManageQuotation() {
                               </p>
                             </div>
                           ) : // item.status == 1 ?
-                          //     <div className="title_bottom">
-                          //         <p className='small-p closed-trip'>Trip Cancelled</p>
-                          //     </div> :
-                          item.counter_recived > 0 ? (
-                            <div className="title_bottom">
-                              <div className="title_bottom_left">
-                                <div className="checked">
-                                  <input
-                                    className="input-field"
-                                    type="checkbox"
-                                    name="u_check"
-                                    checked={receiveChkSts}
-                                    id={`u_check1${i}`}
-                                    onChange={() =>
-                                      handleReceiveQuoteCheck(
-                                        i,
-                                        item.q_id,
-                                        item.request_is_active
-                                      )
-                                    }
-                                  />
-                                  <label
-                                    className="paraxs"
-                                    for={`u_check1${i}`}
-                                    id={`active_status1${i}`}
-                                  >
-                                    {receiveActiveSts}
-                                  </label>
-                                  {/* {/ <span className='paraxs'>Active</span> /} */}
+                            //     <div className="title_bottom">
+                            //         <p className='small-p closed-trip'>Trip Cancelled</p>
+                            //     </div> :
+                            item.counter_recived > 0 ? (
+                              <div className="title_bottom">
+                                <div className="title_bottom_left">
+                                  <div className="checked">
+                                    <input
+                                      className="input-field"
+                                      type="checkbox"
+                                      name="u_check"
+                                      checked={receiveChkSts}
+                                      id={`u_check1${i}`}
+                                      onChange={() =>
+                                        handleReceiveQuoteCheck(
+                                          i,
+                                          item.q_id,
+                                          item.request_is_active
+                                        )
+                                      }
+                                    />
+                                    <label
+                                      className="paraxs"
+                                      for={`u_check1${i}`}
+                                      id={`active_status1${i}`}
+                                    >
+                                      {receiveActiveSts}
+                                    </label>
+                                    {/* {/ <span className='paraxs'>Active</span> /} */}
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="title_bottom_right">
-                                <a
-                                  className="link-text mb-0"
-                                  style={
-                                    item.request_is_active == 0
-                                      ? {
+                                <div className="title_bottom_right">
+                                  <a
+                                    className="link-text mb-0"
+                                    style={
+                                      item.request_is_active == 0
+                                        ? {
                                           pointerEvents: "none",
                                           opacity: "0.7",
                                         }
-                                      : {}
-                                  }
-                                  id={`reviewQuotes${i}`}
-                                  onClick={() =>
-                                    handleReviewQuotes(item.r_id, item.q_id, i)
-                                  }
-                                >
-                                  Review Quotes
-                                </a>
+                                        : {}
+                                    }
+                                    id={`reviewQuotes${i}`}
+                                    onClick={() =>
+                                      handleReviewQuotes(item.r_id, item.q_id, i)
+                                    }
+                                  >
+                                    Review Quotes
+                                  </a>
+                                </div>
                               </div>
-                            </div>
-                          ) : (
-                            <div className="title_bottom">
-                              <p className="small-p closed-trip">
-                                Trip Rejected
-                              </p>
-                            </div>
-                          )}
+                            ) : (
+                              <div className="title_bottom">
+                                <p className="small-p closed-trip">
+                                  Trip Rejected
+                                </p>
+                              </div>
+                            )}
 
                           <div
-                            className={`link_modal ${
-                              isClicked && quoteIndex == item.q_id
-                                ? "open"
-                                : "close"
-                            }`}
+                            className={`link_modal ${isClicked && quoteIndex == item.q_id
+                              ? "open"
+                              : "close"
+                              }`}
                           >
                             {isLoading ? (
-                            <div className="loader_div">
-                              <Loader />
-                            </div>
+                              <div className="loader_div">
+                                <Loader />
+                              </div>
                             ) : (
                               <div className="card_body p-0">
                                 <ReactTooltip
@@ -1346,66 +1361,66 @@ function ManageQuotation() {
                                     </thead>
                                     <tbody>
                                       {Array.isArray(vendorList) &&
-                                      vendorList.length
+                                        vendorList.length
                                         ? vendorList.map((item, i) => {
-                                            return (
-                                              <tr>
-                                                {vendorList.length > 1 ? (
-                                                  <td>
-                                                    <input
-                                                      className="input-field table-checkbox"
-                                                      name="tpQuotes[]"
-                                                      type="checkbox"
-                                                      value={item.v_id}
-                                                      id={`selectTp${i}`}
-                                                      onClick={(e) => {
-                                                        getTpValues(
-                                                          item.q_id,
-                                                          item.qs_id,
-                                                          item.v_id,
-                                                          item.r_id,
-                                                          i
-                                                        );
-                                                      }}
-                                                    />
-                                                  </td>
-                                                ) : (
-                                                  ""
-                                                )}
-                                                <td data-label="Sr.No.">
-                                                  {i + 1}
+                                          return (
+                                            <tr>
+                                              {vendorList.length > 1 ? (
+                                                <td>
+                                                  <input
+                                                    className="input-field table-checkbox"
+                                                    name="tpQuotes[]"
+                                                    type="checkbox"
+                                                    value={item.v_id}
+                                                    id={`selectTp${i}`}
+                                                    onClick={(e) => {
+                                                      getTpValues(
+                                                        item.q_id,
+                                                        item.qs_id,
+                                                        item.v_id,
+                                                        item.r_id,
+                                                        i
+                                                      );
+                                                    }}
+                                                  />
                                                 </td>
-                                                <td data-label="Name">
-                                                  {item.vname}
-                                                </td>
-                                                <td data-label="Location">
-                                                  {item.ciname}
-                                                </td>
-                                                <td data-label="Trip Quotation">
-                                                  ${item.qs_price}
-                                                </td>
-                                                <td data-label="Deposit">
-                                                  ${item.qs_deposit}
-                                                </td>
-                                                <td data-label="Cancellation-Date">
-                                                  {item.qs_cancellation_days ===
+                                              ) : (
+                                                ""
+                                              )}
+                                              <td data-label="Sr.No.">
+                                                {i + 1}
+                                              </td>
+                                              <td data-label="Name">
+                                                {item.vname}
+                                              </td>
+                                              <td data-label="Location">
+                                                {item.ciname}
+                                              </td>
+                                              <td data-label="Trip Quotation">
+                                                ${item.qs_price}
+                                              </td>
+                                              <td data-label="Deposit">
+                                                ${item.qs_deposit}
+                                              </td>
+                                              <td data-label="Cancellation-Date">
+                                                {item.qs_cancellation_days ===
                                                   "0000-00-00"
-                                                    ? "--"
-                                                    : moment(
-                                                        item.qs_cancellation_days
-                                                      ).format(
-                                                        "ddd MMM D, YYYY"
-                                                      )}
-                                                </td>
-                                                <td
-                                                  data-label="Note"
-                                                  className="brk-txt"
-                                                >
-                                                  {item.qs_notes}
-                                                </td>
-                                              </tr>
-                                            );
-                                          })
+                                                  ? "--"
+                                                  : moment(
+                                                    item.qs_cancellation_days
+                                                  ).format(
+                                                    "ddd MMM D, YYYY"
+                                                  )}
+                                              </td>
+                                              <td
+                                                data-label="Note"
+                                                className="brk-txt"
+                                              >
+                                                {item.qs_notes}
+                                              </td>
+                                            </tr>
+                                          );
+                                        })
                                         : ""}
                                     </tbody>
                                   </table>
@@ -1538,9 +1553,8 @@ function ManageQuotation() {
                 </div>
 
                 <div
-                  className={`tab-pane fade ${
-                    param.tab_id == 3 ? "show active" : ""
-                  }`}
+                  className={`tab-pane fade ${param.tab_id == 3 ? "show active" : ""
+                    }`}
                   id="Compare"
                   role="tabpanel"
                   aria-labelledby="contact-tab"
@@ -1650,11 +1664,10 @@ function ManageQuotation() {
                             </div>
                           </div>
                           <div
-                            className={`link_modal ${
-                              isClicked && compareIndex == item.q_id
-                                ? "open"
-                                : "close"
-                            }`}
+                            className={`link_modal ${isClicked && compareIndex == item.q_id
+                              ? "open"
+                              : "close"
+                              }`}
                           >
                             {/* <div className='card_body'>
                                         <div className="label-heading">
@@ -1682,22 +1695,22 @@ function ManageQuotation() {
 
                               {isLoading ? (
                                 <div className="loader_div2">
-                                    <Loader />
+                                  <Loader />
                                 </div>
-                            ) : (
-                              <div className="compare-card">
-                                <div className="tp-profile">
-                                  {
-                                   item.user_data.map((user, i) => {
+                              ) : (
+                                <div className="compare-card">
+                                  <div className="tp-profile">
+                                    {
+                                      item.user_data.map((user, i) => {
                                         return (
                                           <div className="tp-profile-block">
                                             <div className="tp-profile-img">
                                               {user.v_prorfile_pic === null ||
-                                              user.v_prorfile_pic === "" ? (
+                                                user.v_prorfile_pic === "" ? (
                                                 <img src="../assets/img/profile.png"></img>
                                               ) : (
                                                 <img
-                                                  src={` ${API_BASE_URL }assets/images/user/${user.v_prorfile_pic}`}
+                                                  src={` ${API_BASE_URL}assets/images/user/${user.v_prorfile_pic}`}
                                                   id="imgPreview"
                                                 ></img>
                                               )}
@@ -1711,15 +1724,15 @@ function ManageQuotation() {
                                         );
                                       })
                                     }
-                                </div>
-                                <div className="compare-subtitle">
-                                  <p className="paraxs tl-c blue-text mb-0">
-                                    Trip Quotation
-                                  </p>
-                                </div>
-                                <div className="tp-profile mt">
-                                  {
-                                  item.user_data.map((user, i) => {
+                                  </div>
+                                  <div className="compare-subtitle">
+                                    <p className="paraxs tl-c blue-text mb-0">
+                                      Trip Quotation
+                                    </p>
+                                  </div>
+                                  <div className="tp-profile mt">
+                                    {
+                                      item.user_data.map((user, i) => {
                                         return (
                                           <div className="tp-profile-block">
                                             <div className="tp-profile-p">
@@ -1744,49 +1757,49 @@ function ManageQuotation() {
                                         );
                                       })
                                     }
-                                </div>
-                                <div className="compare-subtitle">
-                                  <p className="paraxs tl-c blue-text mb-0">
-                                    Cancellation Date
-                                  </p>
-                                </div>
-                                <div className="tp-profile mt">
-                                  {item.user_data.map((user, i) => {
-                                        return (
-                                          <div className="tp-profile-block">
-                                            <h6 className="small-heading tl-c">
-                                              {user.qs_cancellation_days ===
+                                  </div>
+                                  <div className="compare-subtitle">
+                                    <p className="paraxs tl-c blue-text mb-0">
+                                      Cancellation Date
+                                    </p>
+                                  </div>
+                                  <div className="tp-profile mt">
+                                    {item.user_data.map((user, i) => {
+                                      return (
+                                        <div className="tp-profile-block">
+                                          <h6 className="small-heading tl-c">
+                                            {user.qs_cancellation_days ===
                                               "0000-00-00"
-                                                ? "-"
-                                                : moment(
-                                                  user.qs_cancellation_days
-                                                  ).format("ddd MMM D, YYYY")}
-                                            </h6>
-                                          </div>
-                                        );
-                                      })
+                                              ? "-"
+                                              : moment(
+                                                user.qs_cancellation_days
+                                              ).format("ddd MMM D, YYYY")}
+                                          </h6>
+                                        </div>
+                                      );
+                                    })
                                     }
-                                </div>
-                                <div className="compare-subtitle">
-                                  <p className="paraxs tl-c blue-text mb-0">
-                                    Notes
-                                  </p>
-                                </div>
-                                <div className="tp-profile mt">
-                                  {item.user_data.map((user, i) => {
-                                        return (
-                                          <div className="tp-profile-block">
-                                            <h6 className="small-heading tl-c">
-                                              {user.qs_notes}
-                                            </h6>
-                                          </div>
-                                        );
-                                      })
+                                  </div>
+                                  <div className="compare-subtitle">
+                                    <p className="paraxs tl-c blue-text mb-0">
+                                      Notes
+                                    </p>
+                                  </div>
+                                  <div className="tp-profile mt">
+                                    {item.user_data.map((user, i) => {
+                                      return (
+                                        <div className="tp-profile-block">
+                                          <h6 className="small-heading tl-c">
+                                            {user.qs_notes}
+                                          </h6>
+                                        </div>
+                                      );
+                                    })
                                     }
+                                  </div>
                                 </div>
-                              </div>
-                            )}
-                              
+                              )}
+
                             </div>
                           </div>
                         </div>
@@ -1802,15 +1815,14 @@ function ManageQuotation() {
                 </div>
 
                 <div
-                  className={`tab-pane fade ${
-                    param.tab_id == 4 ? "show active" : ""
-                  }`}
+                  className={`tab-pane fade ${param.tab_id == 4 ? "show active" : ""
+                    }`}
                   id="TpProvider"
                   role="tabpanel"
                   aria-labelledby="tp-tab"
                 >
                   {Array.isArray(transportProviders) &&
-                  transportProviders.length ? (
+                    transportProviders.length ? (
                     transportProviders.map((item, i) => {
                       // if (item.charge_id !== '' && item.charge_id_main_amt !== '') {
                       //     var totalPaid = item.qs_deposit + item.qs_price;
@@ -1967,11 +1979,11 @@ function ManageQuotation() {
                                     <p>Cancellation Date</p>
                                     <span>
                                       {item.qs_cancellation_days ===
-                                      "0000-00-00"
+                                        "0000-00-00"
                                         ? "-"
                                         : moment(
-                                            item.qs_cancellation_days
-                                          ).format("ddd MMM D, YYYY")}
+                                          item.qs_cancellation_days
+                                        ).format("ddd MMM D, YYYY")}
                                     </span>
                                   </div>
                                   <div className="label_group">
@@ -2013,15 +2025,15 @@ function ManageQuotation() {
                                     <span>
                                       $
                                       {item.charge_id !== "" &&
-                                      item.charge_id_main_amt !== ""
+                                        item.charge_id_main_amt !== ""
                                         ? item.qs_price
                                         : item.charge_id !== "" &&
                                           item.charge_id_main_amt === ""
-                                        ? item.qs_deposit
-                                        : item.charge_id === "" &&
-                                          item.charge_id_main_amt !== ""
-                                        ? item.qs_price
-                                        : 0}
+                                          ? item.qs_deposit
+                                          : item.charge_id === "" &&
+                                            item.charge_id_main_amt !== ""
+                                            ? item.qs_price
+                                            : 0}
                                     </span>
                                   </div>
                                   <div className="label_group">
@@ -2048,15 +2060,14 @@ function ManageQuotation() {
                   )}
                 </div>
                 <div
-                  className={`tab-pane fade ${
-                    param.tab_id == 5 ? "show active" : ""
-                  }`}
+                  className={`tab-pane fade ${param.tab_id == 5 ? "show active" : ""
+                    }`}
                   id="expired"
                   role="tabpanel"
                   aria-labelledby="expired-tab"
                 >
                   {Array.isArray(expiredQuotations) &&
-                  expiredQuotations.length ? (
+                    expiredQuotations.length ? (
                     expiredQuotations.map((item, i) => {
                       return (
                         <div className="accordion-item">
@@ -2135,7 +2146,7 @@ function ManageQuotation() {
                                       "ddd MMM D, YYYY"
                                     )}
                                   </span>
-                                </div>                                
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2152,15 +2163,14 @@ function ManageQuotation() {
                 </div>
 
                 <div
-                  className={`tab-pane fade ${
-                    param.tab_id == 6 ? "show active" : ""
-                  }`}
+                  className={`tab-pane fade ${param.tab_id == 6 ? "show active" : ""
+                    }`}
                   id="rejected"
                   role="tabpanel"
                   aria-labelledby="rejected-tab"
                 >
                   {Array.isArray(rejectedQuotations) &&
-                  rejectedQuotations.length ? (
+                    rejectedQuotations.length ? (
                     rejectedQuotations.map((item, i) => {
                       return (
                         <div className="accordion-item">
@@ -2331,18 +2341,16 @@ function ManageQuotation() {
                       {msgText.map((item) => {
                         return (
                           <div
-                            className={`${
-                              item.message_direction === "right"
-                                ? "chat-text-sender"
-                                : "chat-text-receiver"
-                            }`}
+                            className={`${item.message_direction === "right"
+                              ? "chat-text-sender"
+                              : "chat-text-receiver"
+                              }`}
                           >
                             <p
-                              className={`${
-                                item.message_direction === "right"
-                                  ? "send-text"
-                                  : "receive-text"
-                              }`}
+                              className={`${item.message_direction === "right"
+                                ? "send-text"
+                                : "receive-text"
+                                }`}
                             >
                               {item.data}
                             </p>

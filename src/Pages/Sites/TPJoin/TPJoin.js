@@ -15,10 +15,23 @@ function TPJoin() {
     const [discTwo, setDiscTwo] = useState('');
     const [discThree, setDiscThree] = useState('');
     const [loader, setLoader] = useState(true);
+    const [upArrow, setUparrow] = useState(false);
+
+    const handleScroll = (e) => {
+        const offsetHeight = document.documentElement.offsetHeight;
+        const innerHeight = window.innerHeight;
+        const scrollTop = document.documentElement.scrollTop;
+
+        if (offsetHeight - (innerHeight + scrollTop) <= 10) {
+            setUparrow(true);
+        } else if (window.scrollY === 0) {
+            setUparrow(false);
+        }
+    };
 
     useEffect(() => {
         const countryList = async () => {
-            const response = await Axios( API_BASE_URL  + 'api/Transportation_Providers');
+            const response = await Axios(API_BASE_URL + 'api/Transportation_Providers');
 
             const disc_one = response.data.page_contain[0].desc_one;
             const disc_two = response.data.page_contain[0].desc_two;
@@ -29,6 +42,8 @@ function TPJoin() {
             setDiscTwo(disc_two);
             setDiscThree(disc_three);
             setLoader(false);
+
+            window.addEventListener("scroll", handleScroll);
         };
         countryList();
 
@@ -51,7 +66,9 @@ function TPJoin() {
                         <div className="page-details">
                             <div className="downwardarrow">
                                 <i
-                                    class="fa fa-long-arrow-down"
+                                    class={upArrow
+                                        ? "fa fa-long-arrow-down upwardarrow"
+                                        : "fa fa-long-arrow-down"}
                                     style={{ fontSize: "40px", color: "blue" }}
                                 ></i>
                             </div>
@@ -61,16 +78,16 @@ function TPJoin() {
                         </div>
                         <div className="page-button">
                             {
-                                appType == '1' ? 
-                                (
-                                    <Link to='/vendor-register'><button className='submit_btn'>Register Now</button></Link>
-                                )
-                                :
-                                (
-                                    <Link to='/vendor-register-us'><button className='submit_btn'>Register Now</button></Link>
-                                )
+                                appType == '1' ?
+                                    (
+                                        <Link to='/vendor-register'><button className='submit_btn'>Register Now</button></Link>
+                                    )
+                                    :
+                                    (
+                                        <Link to='/vendor-register-us'><button className='submit_btn'>Register Now</button></Link>
+                                    )
                             }
-                            
+
                         </div>
                     </div>
                 )

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
-import {API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from '../../Config/Config';
+import { API_BASE_URL, STRIPE_PUBLISHABLE_KEY } from '../../Config/Config';
 import { BASE_URL } from '../../Config/BaseUrl';
 import TopNavWhite from './TopNavWhite';
 import { getLocalStorageAuth } from '../../Auth/Auth.service';
@@ -55,7 +55,7 @@ function PaymentScreen() {
     useEffect(() => {
 
         const paymentSummary = async () => {
-            const response = await Axios( API_BASE_URL  + 'api/payment_summery/' + qId + '/' + qsId + '/' + auth.id);
+            const response = await Axios(API_BASE_URL + 'api/payment_summery/' + qId + '/' + qsId + '/' + auth.id);
             console.log(response);
             setRequestQuote(response.data.q_request[0]);
             setUserDetails(response.data.user_details[0]);
@@ -113,7 +113,7 @@ function PaymentScreen() {
                     } else {
                         setStripeToken(response.id);
                         const formData = new FormData(e.target);
-                        Axios.post( API_BASE_URL  + 'api/project_payment', formData)
+                        Axios.post(API_BASE_URL + 'api/project_payment', formData)
                             .then(res => {
 
                                 var currentDate = new Date();
@@ -127,18 +127,18 @@ function PaymentScreen() {
                                     setTimeout(() => {
                                         setDisabled(false);
                                         hideModal();
-                                        if(formattedCurrentDate == res.data.start_date){
+                                        if (formattedCurrentDate == res.data.start_date) {
                                             navigate("/Trip-status/2")
                                         } else {
                                             navigate("/Trip-status/1");
-                                        }                                        
+                                        }
                                     }, 4000);
                                     setDisabled(false);
                                     setPayBtn('Pay');
                                 } else {
                                     toast.error('Something went wrong');
                                     setPayBtn('Pay');
-                                    setTimeout(() => {                                        
+                                    setTimeout(() => {
                                         setDisabled(false);
                                     }, 4000);
                                 }
@@ -266,17 +266,17 @@ function PaymentScreen() {
                             })}</div>
                         </div>
                         <div className="flex-center">
-                            <div className='form_groupDiv mr-xl'>
+                            <div className='form_groupDiv mr-xl' style={{ minHeight: '100px' }}>
                                 <label className="form-label" htmlFor='card_exp_month' >Expiry Month*</label>
                                 <div className='selectss'>
                                     {/* <select className='input-field' name='card_exp_month' id='card_exp_month' onChange={handleChange}> */}
                                     <Select
-                                    className='input-field select'
-                                    labelId="demo-simple-select-label"
-                                    id="card_exp_month"
-                                    name='card_exp_month'
-                                    onChange={handleChange}
-                                >
+                                        className='input-field select'
+                                        labelId="demo-simple-select-label"
+                                        id="card_exp_month"
+                                        name='card_exp_month'
+                                        onChange={handleChange}
+                                    >
                                         <MenuItem value="" disabled>--</MenuItem>
                                         <MenuItem value="1">01</MenuItem>
                                         <MenuItem value="2">02</MenuItem>
@@ -302,15 +302,15 @@ function PaymentScreen() {
                                     })}</div>
                                 </div>
                             </div>
-                            <div className='form_groupDiv'>
+                            <div className='form_groupDiv' style={{ minHeight: '100px' }}>
                                 <label className="form-label" htmlFor='card_exp_year'>Expiry Year*</label>
                                 <div className='selectss'>
                                     <Select
-                                    className='input-field select'
-                                    labelId="demo-simple-select-label"
-                                    id="card_exp_year"
-                                    name='card_exp_year'
-                                    onChange={handleChange}>
+                                        className='input-field select'
+                                        labelId="demo-simple-select-label"
+                                        id="card_exp_year"
+                                        name='card_exp_year'
+                                        onChange={handleChange}>
                                         <MenuItem value="" disabled>--</MenuItem>
                                         {
                                             exp_year.map((item, i) => {

@@ -41,7 +41,7 @@ function ContactUs() {
 
     useEffect(() => {
         const countryList = async () => {
-            const response = await Axios( API_BASE_URL  + 'api/get_admin_countries_code');
+            const response = await Axios(API_BASE_URL + 'api/get_admin_countries_code');
             setCountryList(response.data.data);
         };
         countryList();
@@ -73,8 +73,8 @@ function ContactUs() {
         if (validator.allValid()) {
             if ((nameErr == '' || nameErr == null) && (emailErr == '' || emailErr == null) && (mobileErr == '' || mobileErr == null)) {
                 setDisabled(true);
-                Axios.post( API_BASE_URL  + 'api/contact_us', formData)
-                    .then(response => {                        
+                Axios.post(API_BASE_URL + 'api/contact_us', formData)
+                    .then(response => {
                         if (response.data.status == true) {
                             setSendBtn('Sending...');
                             setTimeout(() => {
@@ -139,10 +139,10 @@ function ContactUs() {
                                 <div className='form_groupDiv'>
                                     <label className="form-label" htmlFor='first_name'>Full Name*</label>
                                     <input type="text" className="form-control" id="name" placeholder="Enter Full Name *" name="name" maxLength={50} value={inputValues.name} onChange={e => { handleChange(e); onNameChange(e) }} />
-                                    <div style={errorMsg}>{validator.message("name", inputValues.name, "required|min:4", {
+                                    <div style={errorMsg}>{validator.message("name", inputValues.name, "required|min:3", {
                                         messages: {
                                             required: "Enter your name",
-                                            min: "Name must contain atleast 4 characters",
+                                            min: "Name must contain atleast 3 characters",
                                             // alpha_space: "Only letters and spaces are allowed"
                                         }
                                     })}
@@ -169,24 +169,24 @@ function ContactUs() {
                                 <div className='form_groupDiv'>
                                     <label className="form-label" htmlFor='CountryCode'>Select Country Code*</label>
                                     <div className='selectss regCountryCode'>
-                                    <Select
-                                        className='input-field selects'
-                                        labelId="demo-simple-select-label"
-                                        id="countryCode"
-                                        name='countryCode'
-                                        defaultValue='Select Country Code'
-                                        value={inputValues.countryCode}                                        
-                                        onChange={handleChange}
-                                    >
-                                        <MenuItem value="Select Country Code" disabled>Select Country Code</MenuItem>
-                                        {
+                                        <Select
+                                            className='input-field selects'
+                                            labelId="demo-simple-select-label"
+                                            id="countryCode"
+                                            name='countryCode'
+                                            defaultValue='Select Country Code'
+                                            value={inputValues.countryCode}
+                                            onChange={handleChange}
+                                        >
+                                            <MenuItem value="Select Country Code" disabled>Select Country Code</MenuItem>
+                                            {
                                                 countryList.map((item) => {
-                                                        return (
-                                                            <MenuItem  key={item.id} value={item.id} >{item.name} - {item.country_code}</MenuItem>
-                                                        )
-                                                    })
-                                                }
-                                    </Select>
+                                                    return (
+                                                        <MenuItem key={item.id} value={item.id} >{item.name} - {item.country_code}</MenuItem>
+                                                    )
+                                                })
+                                            }
+                                        </Select>
                                         <div className='down_arrow'>
                                             <i class="fas fa-caret-down"></i>
                                         </div>
@@ -200,9 +200,9 @@ function ContactUs() {
 
                                 <div className='form_groupDiv number'>
                                     {/* <div className='selects_wrppers'> */}
-                                        <label className="form-label" htmlFor='countryCode'>Mobile Phone Number*</label>
-                                        <div className='select_area'>
-                                            {/* <div className='select'>
+                                    <label className="form-label" htmlFor='countryCode'>Mobile Phone Number*</label>
+                                    <div className='select_area'>
+                                        {/* <div className='select'>
                                                 <select className="input-field selects" name='countryCode' id='countryCode' onChange={handleChange} >
                                                     <option value="">--</option>
                                                     {
@@ -217,28 +217,28 @@ function ContactUs() {
                                                     <img src="https://img.icons8.com/ios/10/000000/expand-arrow--v1.png" />
                                                 </div>
                                             </div> */}
-                                            <input className="input-field" type='tel' name='mob' id='mob' placeholder="Enter Mobile Phone Number*" maxLength={15} value={inputValues.mob} onChange={handleChange} />
-                                        </div>
-                                        {/* <div style={errorMsg}>{validator.message("countryCode", inputValues.countryCode, "required", {
+                                        <input className="input-field" type='tel' name='mob' id='mob' placeholder="Enter Mobile Phone Number*" maxLength={15} value={inputValues.mob} onChange={handleChange} />
+                                    </div>
+                                    {/* <div style={errorMsg}>{validator.message("countryCode", inputValues.countryCode, "required", {
                                             messages: {
                                                 required: "Select country code"
                                             }
                                         })}
-                                        </div> */}                                        
-                                        <div style={errorMsg}>{validator.message("mob", inputValues.mob, "required|integer|min:8|max:15", {
-                                            messages: {
-                                                required: "Enter mobile number",
-                                                integer: "Enter numbers only",
-                                                min: "Mobile number must be atleast 8 digits",
-                                                max: "Mobile number must not be more than 15 digits"
-                                            }
-                                        })}
-                                            {inputValues.mob != '' ?
-                                                (
-                                                    <div className='srv-validation-message'>{mobileErr}</div>
-                                                ) : ''}
-                                        </div>
-                                        
+                                        </div> */}
+                                    <div style={errorMsg}>{validator.message("mob", inputValues.mob, "required|integer|min:8|max:15", {
+                                        messages: {
+                                            required: "Enter mobile number",
+                                            integer: "Enter numbers only",
+                                            min: "Mobile number must be atleast 8 digits",
+                                            max: "Mobile number must not be more than 15 digits"
+                                        }
+                                    })}
+                                        {inputValues.mob != '' ?
+                                            (
+                                                <div className='srv-validation-message'>{mobileErr}</div>
+                                            ) : ''}
+                                    </div>
+
 
                                     {/* </div> */}
                                 </div>

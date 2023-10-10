@@ -89,7 +89,7 @@ function QuoteManage() {
 
         if (price == '0') {
             setProjPriceErr('Trip price must be greater than 0');
-        } else if(!isOk) {
+        } else if (!isOk) {
             setProjPriceErr('Enter correct amount');
         } else {
             setProjPriceErr('');
@@ -103,7 +103,7 @@ function QuoteManage() {
 
         if (parseInt(e.target.value) >= parseInt(main_price)) {
             setAdvancePriceErr('Deposit amount must be less than main price');
-        } else if(!isOk){
+        } else if (!isOk) {
             setAdvancePriceErr('Enter correct amount');
         } else {
             setAdvancePriceErr('');
@@ -127,7 +127,7 @@ function QuoteManage() {
         window.scrollTo(0, 0);
 
         const newQuotationReq = async () => {
-            const response = await Axios( API_BASE_URL + 'api/new_quote/' + auth.id);
+            const response = await Axios(API_BASE_URL + 'api/new_quote/' + auth.id);
             if (response.data.status == true) {
                 console.log('new quote', response);
                 setQuoteReq(response.data.data.new_quote);
@@ -136,7 +136,7 @@ function QuoteManage() {
         };
 
         const submitReq = async () => {
-            const response = await Axios( API_BASE_URL + 'api/submitted_quote/' + auth.id);
+            const response = await Axios(API_BASE_URL + 'api/submitted_quote/' + auth.id);
             if (response.data.status == true) {
                 // console.log('submittted quote',response);        
                 setSubmitedReq(response.data.data);
@@ -144,7 +144,7 @@ function QuoteManage() {
         };
 
         const wonQuoteReq = async () => {
-            const response = await Axios( API_BASE_URL + 'api/won_quotes/' + auth.id);
+            const response = await Axios(API_BASE_URL + 'api/won_quotes/' + auth.id);
             if (response.data.status == true) {
                 // console.log('won_quotes', response);
                 setWonReq(response.data.data);
@@ -152,8 +152,8 @@ function QuoteManage() {
         };
 
         const rejectedAndNotIntrestedReq = async () => {
-            const response = await Axios( API_BASE_URL + 'api/rejected_quotes/' + auth.id);
-            console.log('rej - ',response);
+            const response = await Axios(API_BASE_URL + 'api/rejected_quotes/' + auth.id);
+            console.log('rej - ', response);
             if (response.data.status == true) {
                 setRejectedReq(response.data.rejData);
                 setNotIntrestedReq(response.data.notIntData);
@@ -161,7 +161,7 @@ function QuoteManage() {
         };
 
         const inactive_req = async () => {
-            const response = await Axios( API_BASE_URL + 'api/inactive_quotations/' + auth.id);
+            const response = await Axios(API_BASE_URL + 'api/inactive_quotations/' + auth.id);
             if (response.data.status == true) {
                 // console.log(response.data.data);
                 setInactiveReq(response.data.data);
@@ -169,7 +169,7 @@ function QuoteManage() {
         };
 
         const vendorStripeDetails = async () => {
-            const response = await Axios( API_BASE_URL + 'api/vendor_stripe_details/' + auth.id);
+            const response = await Axios(API_BASE_URL + 'api/vendor_stripe_details/' + auth.id);
             console.log(response);
             setSubmittedQuoteCount(response.data.get_count);
             setAccDetails(response.data.acc_details);
@@ -351,7 +351,7 @@ function QuoteManage() {
         setClearUId(uId);
 
         const clarificationMsg = async () => {
-            const response = await Axios( API_BASE_URL + 'api/get_clarification_msg/' + qsId + '/' + qId + '/' + uId + '/' + vId);
+            const response = await Axios(API_BASE_URL + 'api/get_clarification_msg/' + qsId + '/' + qId + '/' + uId + '/' + vId);
             // console.log(response.data.output)
             if (response.data.status === true) {
                 console.log(response);
@@ -370,22 +370,22 @@ function QuoteManage() {
 
     const handleSubmitNotInterested = (e) => {
         e.preventDefault();
-        $('#notInterested').prop('disabled',true);
+        $('#notInterested').prop('disabled', true);
         const formData = new FormData(e.target);
 
-        Axios.post( API_BASE_URL + 'api/not_intrested', formData)
+        Axios.post(API_BASE_URL + 'api/not_intrested', formData)
             .then(res => {
                 if (res.data.status == true) {
                     hideModalNotIntrest();
-                    toast.success(res.data.message);                    
+                    toast.success(res.data.message);
                     setQsId('');
                     setTimeout(() => {
-                        $('#notInterested').prop('disabled',false);
+                        $('#notInterested').prop('disabled', false);
                         navigate('/quote-management/4');
                         window.location.reload();
                     }, 4000);
                 } else {
-                    $('#notInterested').prop('disabled',false);
+                    $('#notInterested').prop('disabled', false);
                     toast.error(res.data.message);
                 }
             })
@@ -394,23 +394,23 @@ function QuoteManage() {
 
     const handleSubmitCancelReq = (e) => {
         e.preventDefault();
-        $('#cancelQuote').prop('disabled',true);
+        $('#cancelQuote').prop('disabled', true);
         const formData = new FormData(e.target);
 
-        Axios.post( API_BASE_URL + 'api/cancel_quotation', formData)
+        Axios.post(API_BASE_URL + 'api/cancel_quotation', formData)
             .then(res => {
                 if (res.data.status == true) {
                     hideModalSubmitCancel();
                     toast.success(res.data.message);
-                    
+
                     setQsId('');
                     setTimeout(() => {
                         navigate('/manage-trip/4');
                         window.location.reload();
-                        $('#cancelQuote').prop('disabled',false);
+                        $('#cancelQuote').prop('disabled', false);
                     }, 4000);
                 } else {
-                    $('#cancelQuote').prop('disabled',false);
+                    $('#cancelQuote').prop('disabled', false);
                     toast.error(res.data.message);
                 }
             })
@@ -419,31 +419,31 @@ function QuoteManage() {
 
     const handleClearification = (e) => {
         e.preventDefault();
-        $('#sendClarification').prop('disabled',true);
+        $('#sendClarification').prop('disabled', true);
 
         const formData = new FormData(e.target);
         if (validator1.allValid()) {
-        
-        if ($('#clari_txt').val() != '') {
-            Axios.post( API_BASE_URL + 'api/clarification_msg', formData)
-                .then(res => {
-                    console.log("Status: ", res);
-                    if (res.data.status == true) {
-                        setClarifyValue({
-                            clari_txt: '',
-                        });
-                        hideClearification();
-                        $('#sendClarification').prop('disabled',false);
-                        toast.success(res.data.data)
-                    } else {
-                        $('#sendClarification').prop('disabled',false);
-                        toast.error(res.data.data)
-                    }
-                })
-        }
+
+            if ($('#clari_txt').val() != '') {
+                Axios.post(API_BASE_URL + 'api/clarification_msg', formData)
+                    .then(res => {
+                        console.log("Status: ", res);
+                        if (res.data.status == true) {
+                            setClarifyValue({
+                                clari_txt: '',
+                            });
+                            hideClearification();
+                            $('#sendClarification').prop('disabled', false);
+                            toast.success(res.data.data)
+                        } else {
+                            $('#sendClarification').prop('disabled', false);
+                            toast.error(res.data.data)
+                        }
+                    })
+            }
         } else {
             console.log('b');
-            $('#sendClarification').prop('disabled',false);
+            $('#sendClarification').prop('disabled', false);
             showValidationMessage1(true);
         }
     }
@@ -452,7 +452,7 @@ function QuoteManage() {
         e.preventDefault();
 
         const formData = new FormData(e.target);
-        Axios.post( API_BASE_URL + 'api/not_intrested', formData)
+        Axios.post(API_BASE_URL + 'api/not_intrested', formData)
             .then(res => {
                 if (res.data.status == true) {
                     hideModalNotIntrest();
@@ -472,34 +472,34 @@ function QuoteManage() {
     }
 
     const SubmitQuotation = (e) => {
-        e.preventDefault();        
+        e.preventDefault();
         const formData = new FormData(e.target);
 
         if (validator.allValid()) {
-            
-            if(advancePriceErr == '' && projPriceErr == ''){
+
+            if (advancePriceErr == '' && projPriceErr == '') {
                 setDisabled(true);
-                Axios.post( API_BASE_URL + 'api/submit_quotation', formData)
-                .then(res => {
-                    
-                    if (res.data.status == 'success') {
-                        setQuoteBtn('Sending...');
-                        toast.success(res.data.message);
-                        setTimeout(() => {
-                            setQuoteBtn('Send Quotation');
-                            setDisabled(false);
-                            navigate('/quote-management/2');
-                            window.location.reload();
-                        }, 4000);
-                    } else {
-                        toast.error(res.data.data);
-                        setTimeout(() => {
-                            setDisabled(false);
-                        }, 5000);
-                    }
-                })
+                Axios.post(API_BASE_URL + 'api/submit_quotation', formData)
+                    .then(res => {
+
+                        if (res.data.status == 'success') {
+                            setQuoteBtn('Sending...');
+                            toast.success(res.data.message);
+                            setTimeout(() => {
+                                setQuoteBtn('Send Quotation');
+                                setDisabled(false);
+                                navigate('/quote-management/2');
+                                window.location.reload();
+                            }, 4000);
+                        } else {
+                            toast.error(res.data.data);
+                            setTimeout(() => {
+                                setDisabled(false);
+                            }, 5000);
+                        }
+                    })
             }
-            
+
         } else {
             console.log('b');
             showValidationMessage(true);
@@ -532,31 +532,31 @@ function QuoteManage() {
                         <TopNavWhite title={'Manage Quotations'} />
                         <div className='tabs_area'>
                             <div className='tabsWrppers'>
-                                <div className="upper_tabs">
+                                <div className="upper_tabs" style={{ backgroundColor: '#fff' }}>
                                     <ul className="nav nav-tabs tabs" id="myTab" role="tablist">
                                         <li data-id="contentOne" className="nav-item" role="presentation">
                                             {/* <NavLink className='inner_tab' to='/quote-management/1'> */}
-                                                <button className={`nav-link ${(param.tab_id == 1) ? 'active' : ''}`} id="newQuote-tab" data-bs-toggle="tab" data-bs-target="#newQuote" type="button" role="tab" aria-controls="newQuote" aria-selected="true">New Quotation Request</button>
+                                            <button className={`nav-link ${(param.tab_id == 1) ? 'active' : ''}`} id="newQuote-tab" data-bs-toggle="tab" data-bs-target="#newQuote" type="button" role="tab" aria-controls="newQuote" aria-selected="true">New Quotation Request</button>
                                             {/* </NavLink> */}
                                         </li>
                                         <li data-id="contentTwo" className="nav-item" role="presentation">
                                             {/* <NavLink className='inner_tab' to='/quote-management/2'> */}
-                                                <button className={`nav-link ${(param.tab_id == 2) ? 'active' : ''}`} id="Submited-tab" data-bs-toggle="tab" data-bs-target="#Submited" type="button" role="tab" aria-controls="Submited" aria-selected="false">Submitted Quotations</button>
+                                            <button className={`nav-link ${(param.tab_id == 2) ? 'active' : ''}`} id="Submited-tab" data-bs-toggle="tab" data-bs-target="#Submited" type="button" role="tab" aria-controls="Submited" aria-selected="false">Submitted Quotations</button>
                                             {/* </NavLink> */}
                                         </li>
                                         <li data-id="contentThree" className="nav-item" role="presentation">
                                             {/* <NavLink className='inner_tab' to='/quote-management/3'> */}
-                                                <button className={`nav-link ${(param.tab_id == 3) ? 'active' : ''}`} id="Won-tab" data-bs-toggle="tab" data-bs-target="#Won" type="button" role="tab" aria-controls="Won" aria-selected="false">Won Quotations</button>
+                                            <button className={`nav-link ${(param.tab_id == 3) ? 'active' : ''}`} id="Won-tab" data-bs-toggle="tab" data-bs-target="#Won" type="button" role="tab" aria-controls="Won" aria-selected="false">Won Quotations</button>
                                             {/* </NavLink> */}
                                         </li>
                                         <li data-id="contentFour" className="nav-item" role="presentation">
                                             {/* <NavLink className='inner_tab' to='/quote-management/4'> */}
-                                                <button className={`nav-link ${(param.tab_id == 4) ? 'active' : ''}`} id="Rejected-tab" data-bs-toggle="tab" data-bs-target="#Rejected" type="button" role="tab" aria-controls="Rejected" aria-selected="false">Rejected Quotations</button>
+                                            <button className={`nav-link ${(param.tab_id == 4) ? 'active' : ''}`} id="Rejected-tab" data-bs-toggle="tab" data-bs-target="#Rejected" type="button" role="tab" aria-controls="Rejected" aria-selected="false">Rejected Quotations</button>
                                             {/* </NavLink> */}
                                         </li>
                                         <li data-id="contentFive" className="nav-item" role="presentation">
                                             {/* <NavLink className='inner_tab' to='/quote-management/5'> */}
-                                                <button className={`nav-link ${(param.tab_id == 5) ? 'active' : ''}`} id="InActive-tab" data-bs-toggle="tab" data-bs-target="#InActive" type="button" role="tab" aria-controls="InActive" aria-selected="false">In-Active Quotations</button>
+                                            <button className={`nav-link ${(param.tab_id == 5) ? 'active' : ''}`} id="InActive-tab" data-bs-toggle="tab" data-bs-target="#InActive" type="button" role="tab" aria-controls="InActive" aria-selected="false">In-Active Quotations</button>
                                             {/* </NavLink> */}
                                         </li>
                                     </ul>
@@ -623,8 +623,8 @@ function QuoteManage() {
                                                                     <div class="accordion trip-card" id={`accordionExample${item.q_id}`}>
                                                                         {
                                                                             appType == '1' ?
-                                                                            accDetailsCount && <span>( To start getting payment from GlobalCarTreks.com, please <NavLink to="/edit-vendor-profile"><b>click here</b></NavLink> to fill your bank details in the profile section of your Dashboard )</span> :
-                                                                            accDetailsCount && <span>( To start getting payment from GlobalCarTreks.com, please <NavLink to="/edit-vendor-profile-us"><b>click here</b></NavLink> to fill your bank details in the profile section of your Dashboard )</span>
+                                                                                accDetailsCount && <span>( To start getting payment from GlobalCarTreks.com, please <NavLink to="/edit-vendor-profile"><b>click here</b></NavLink> to fill your bank details in the profile section of your Dashboard )</span> :
+                                                                                accDetailsCount && <span>( To start getting payment from GlobalCarTreks.com, please <NavLink to="/edit-vendor-profile-us"><b>click here</b></NavLink> to fill your bank details in the profile section of your Dashboard )</span>
                                                                         }
                                                                         {item.is_delete == 1 ?
                                                                             <div className='title_bottom'><p className='small-p closed-trip'>Cancelled by user</p></div> :
@@ -654,7 +654,7 @@ function QuoteManage() {
                                                                                         <label className="form-label" htmlFor='project_price'>Trip Complete Quotation*<span className='display-b c-red'>(Please note this will be the final price for the trip.)</span></label>
                                                                                         <input type="hidden" name="pcurrency" value="$" />
                                                                                         <div class="price-txt">
-                                                                                            <input className='input-field w-80 bg-white' type='tel' name='project_price' id='project_price' placeholder='$' value={inputValues.project_price} onChange={e => { handleProjectPrice(e); handleChange(e) }} maxLength={7} autoComplete="off"/>
+                                                                                            <input className='input-field w-80 bg-white' type='tel' name='project_price' id='project_price' placeholder='$' value={inputValues.project_price} onChange={e => { handleProjectPrice(e); handleChange(e) }} maxLength={7} autoComplete="off" />
 
                                                                                             {/* value={inputValue.otp} onChange={handleChange} */}
                                                                                             <div style={errorMsg}>{validator.message("project_price", inputValues.project_price, "required", {
@@ -677,7 +677,7 @@ function QuoteManage() {
                                                                                         <label className="form-label mr" htmlFor='advance'>Trip Deposit* <span className='display-b c-red'>(Please show 0(Zero) if there is no Trip Deposit)</span></label>
                                                                                         <input type="hidden" name="acurrency" value="$" />
                                                                                         <div class="price-txt">
-                                                                                            <input className='input-field w-80 bg-white' type='tel' name='advance' placeholder='$' value={inputValues.advance} onChange={e => { handleChange(e); handleTripDeposit(e) }} maxLength={7} autoComplete="off"/>
+                                                                                            <input className='input-field w-80 bg-white' type='tel' name='advance' placeholder='$' value={inputValues.advance} onChange={e => { handleChange(e); handleTripDeposit(e) }} maxLength={7} autoComplete="off" />
                                                                                             <div style={errorMsg}>{validator.message("advance", inputValues.advance, "required", {
                                                                                                 messages: {
                                                                                                     required: "Enter deposit price",
@@ -703,7 +703,7 @@ function QuoteManage() {
                                                                                     {radio === false ? (
                                                                                         <>
                                                                                             <span class="calendarNote"><b>(Click calendar to set Cancellation Date)</b></span>
-                                                                                            <div className="form_groupDiv edit_profile" >                                                                                                
+                                                                                            <div className="form_groupDiv edit_profile" style={{ maxHeight: '50px' }}>
                                                                                                 <DatePicker
                                                                                                     name='cancel_period'
                                                                                                     className='btm-border date-drop'
@@ -1208,9 +1208,9 @@ function QuoteManage() {
                         </div>
                         <Modal show={notIntrestBtn} className='flex-center-card' >
                             <Modal.Body>
-                                <ModalHeader><div className="modal-heading">
+                                {/* <ModalHeader><div className="modal-heading">
                                     <h6 className='small-heading blue-text tl-c'></h6>
-                                </div></ModalHeader>
+                                </div></ModalHeader> */}
 
                                 <div className="modal-container">
                                     <div className="modal-box">
