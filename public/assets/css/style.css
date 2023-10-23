@@ -1694,3 +1694,21 @@ textarea::placeholder {
 .registraion_wrrpers .react-datepicker-wrapper {
   width: 100%;
 }
+
+@media only screen and (max-width: 535px) {
+  #QuoteForm #foo-fas0 {
+    top: 40% !important;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  #QuoteForm #foo-fas0 {
+    top: 35% !important;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  #QuoteForm #foo-fas0 {
+    top: 35% !important;
+  }
+}
