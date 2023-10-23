@@ -132,7 +132,7 @@ function Ratings() {
         <div>
             <ToastContainer />
             <div className='back_header'>
-                <img src="https://img.icons8.com/material-outlined/24/000000/left.png" onClick={() => navigate(-1)} />
+                <img src="https://img.icons8.com/material-outlined/24/000000/left.png" onClick={() => navigate('/Trip-status/3')} />
             </div>
             <div className="container-fluid">
                 <div className="registraion_wrrpers">
@@ -181,7 +181,7 @@ function Ratings() {
                             (
                                 <>
                                     <span className='paraxs'>Tip Amount: $</span>
-                                    <input className='input-style' type="text" name="tip_amount" onChange={e => {handleChange(e); handleTipPrice(e)}} autoComplete="off"/>
+                                    <input className='input-style' type="text" name="tip_amount" onChange={e => {handleChange(e); handleTipPrice(e)}} maxLength={6} autoComplete="off"/>
                                     <div style={errorMsg}>{validator.message("tip_amount", inputValues.tip_amount, "required", {
                                         messages: {
                                             required: "Enter tip amount",
