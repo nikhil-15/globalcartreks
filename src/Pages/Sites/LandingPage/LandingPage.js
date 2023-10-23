@@ -83,7 +83,7 @@ const LandingPage = () => {
           }}
         >
           <Button className='modal-link' onClick={handleOpen}>How GlobalCarTreks.com works</Button>
-          <p>To book a Limousine in the U.S.</p>
+          <p>To book a Limousine in the U.S. / Registered Transportation Providers log in</p>
           <Link to="/register-option" onClick={setUS}>Click Here</Link>
           {/* <button className="landingBtn" to="" data-tip data-for="comingSoon" >Click Here</button> */}
 
@@ -133,7 +133,7 @@ const LandingPage = () => {
             alignItems: "center",
           }}
         >
-          <p>To book a Car and Driver in Europe</p>
+          <p>To book a Car and Driver in Europe / Registered Transportation Providers log in</p>
           <Link to="/register-option" onClick={setEU}>Click Here</Link>
           <Link className='transport-link'  to="/tp-terms" onClick={setEU}>Transportation Providers - Join: Click Here</Link>
         </div>
