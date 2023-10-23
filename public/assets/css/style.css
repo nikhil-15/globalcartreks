@@ -1663,6 +1663,10 @@ p.send-text {
   .edit_profile .calendar-icon {
     right: 17px;
   }
+
+  div #foo-fas {
+    top: 58% !important;
+  }
 }
 
 /* Rohit */
@@ -1681,4 +1685,12 @@ textarea::placeholder {
 
 .title_bottom_left #headingTwo {
   margin-bottom: 10px;
+}
+
+#myTabContent .accordion-button {
+  padding: 1rem 1.25rem;
+}
+
+.registraion_wrrpers .react-datepicker-wrapper {
+  width: 100%;
 }
