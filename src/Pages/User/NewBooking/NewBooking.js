@@ -28,7 +28,7 @@ function NewBooking() {
     const [cityList, setCityList] = useState([]);
     const [cityName, setCityName] = useState([]);
     const [validator, showValidationMessage] = useValidator();
-    
+
     console.log(bookingDetails);
     const [inputValues, setInputValues] = useState({
         country: bookingDetails && bookingDetails.country ? bookingDetails.country : '',
@@ -38,54 +38,54 @@ function NewBooking() {
         start_date: '',
         end_date: ''
     });
-    
+
     useEffect(() => {
         window.scrollTo(0, 0);
         const countryList = async () => {
-            const response = await Axios( API_BASE_URL + 'api/admin_site_countries');
+            const response = await Axios(API_BASE_URL + 'api/admin_site_countries');
             console.log(response)
             setCountryList(response.data.data);
         };
 
         const stateList = async () => {
-            const response = await Axios( API_BASE_URL + 'api/get_us_states');
+            const response = await Axios(API_BASE_URL + 'api/get_us_states');
             console.log(response);
             setStateList(response.data.data);
         };
 
-        if(bookingDetails){
+        if (bookingDetails) {
 
-        if(appType == '1'){
-            Axios.post( API_BASE_URL + 'api/admin_site_cities/' + bookingDetails.country)
-            .then((response) => {
-                if (response.data.status == 'false') {
-                    setCityList([]);
-                } else {                
-                    setCityList(response.data.cities)
-                    setCityName('')
-                }
-            }).catch(err => console.log(err));
-        } else {
-            Axios.post( API_BASE_URL + 'api/get_cities/' + bookingDetails.country)
-            .then((response) => {
-                console.log(response);
-                if (response.data.status == 'false') {
-                    setCityList([]);
-                } else {
-                    setCityList(response.data.data)
-                    setCityName('')
-                }
-            }).catch(err => console.log(err));
-        }      
+            if (appType == '1') {
+                Axios.post(API_BASE_URL + 'api/admin_site_cities/' + bookingDetails.country)
+                    .then((response) => {
+                        if (response.data.status == 'false') {
+                            setCityList([]);
+                        } else {
+                            setCityList(response.data.cities)
+                            setCityName('')
+                        }
+                    }).catch(err => console.log(err));
+            } else {
+                Axios.post(API_BASE_URL + 'api/get_cities/' + bookingDetails.country)
+                    .then((response) => {
+                        console.log(response);
+                        if (response.data.status == 'false') {
+                            setCityList([]);
+                        } else {
+                            setCityList(response.data.data)
+                            setCityName('')
+                        }
+                    }).catch(err => console.log(err));
+            }
 
-        const cityName = async () => {
-            
-            const response = await Axios( API_BASE_URL + 'api/get_city_name_by_id/' + bookingDetails.city);
-            setCityName(response.data.data);
-        };
+            const cityName = async () => {
 
-        
-        cityName();
+                const response = await Axios(API_BASE_URL + 'api/get_city_name_by_id/' + bookingDetails.city);
+                setCityName(response.data.data);
+            };
+
+
+            cityName();
         }
 
         // const cityList = async () => {
@@ -97,14 +97,14 @@ function NewBooking() {
 
         countryList();
         stateList();
-        
+
         // cityList();
     }, [])
 
     const selectedCountry = (e) => {
-        
+
         const country = e.target.value;
-        Axios.post( API_BASE_URL + 'api/admin_site_cities/' + country)
+        Axios.post(API_BASE_URL + 'api/admin_site_cities/' + country)
             .then((response) => {
                 if (response.data.status == 'false') {
                     setCityList([]);
@@ -118,7 +118,7 @@ function NewBooking() {
 
     const selectedState = (e) => {
         const v_state = e.target.value;
-        Axios.post( API_BASE_URL + 'api/get_cities/' + v_state)
+        Axios.post(API_BASE_URL + 'api/get_cities/' + v_state)
             .then((response) => {
                 console.log(response);
                 if (response.data.status == 'false') {
@@ -131,7 +131,7 @@ function NewBooking() {
     };
 
     const handleChange = (e) => {
-        
+
         console.log(e.target.value);
         const name = e.target.name;
         const value = e.target.value;
@@ -147,18 +147,18 @@ function NewBooking() {
         // setInputValues(inputValues => ({ ...inputValues, end_date: endDate }));
 
         if (validator.allValid()) {
-            $('#search_tp').prop('disabled',true);
-            if(Date.parse(moment(startDate).format('ddd MMM D, yyyy')) > Date.parse(moment(endDate).format('ddd MMM D, yyyy'))){
+            $('#search_tp').prop('disabled', true);
+            if (Date.parse(moment(startDate).format('ddd MMM D, yyyy')) > Date.parse(moment(endDate).format('ddd MMM D, yyyy'))) {
                 toast.error('Start Date cannot be greater than End Date');
                 setTimeout(() => {
                     $('#search_tp').prop('disabled', false);
                 }, 4000);
-            } else {    
-                $('#search_tp').prop('disabled', false);             
+            } else {
+                $('#search_tp').prop('disabled', false);
                 sessionStorage.setItem("bookingDetails", JSON.stringify(inputValues));
-                navigate("/select-tp");    
-                          
-            }            
+                navigate("/select-tp");
+
+            }
         } else {
             showValidationMessage(true);
         }
@@ -177,6 +177,22 @@ function NewBooking() {
         return yyyy + "-" + mm + "-" + dd;
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            // Close the tooltip when clicking outside
+            const tooltip = document.getElementsByClassName('line-height')[0];
+            if (tooltip && !tooltip.contains(event.target)) {
+                ReactTooltip.hide(); // Close the tooltip
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     const errorMsg = {
         color: 'red'
     }
@@ -193,157 +209,157 @@ function NewBooking() {
                         <form onSubmit={handleSubmit}>
                             {
                                 appType == '1' ?
-                                (
-                                    <div className='my-4 form_groupDiv'>
-                                <label className="form-label" htmlFor='country'>Select Country*</label>
-                                <div className="selectss">
-                                <Select
-                                        className='material-select'
-                                        labelId="demo-simple-select-label"
-                                        id="country"
-                                        name='country'
-                                        defaultValue={bookingDetails && bookingDetails.country ? bookingDetails.country : 'Select Country'}
-                                        onChange={e => {handleChange(e);selectedCountry(e)}}
-                                    >
-                                        <MenuItem value="Select Country" disabled>Select Country</MenuItem>
-                                        {
-                                            countryList.map((item) => {
-                                                return (
-                                                    <MenuItem key={item.country_id} value={item.country_id}>{item.name}</MenuItem>
-                                                )
-                                            })
-                                        }
-                                    </Select>
-                                    {/* <select className='input-field' name='country' id='country' onBlur={e => selectedCountry(e)} onChange={handleChange}>
-                                        <option value="" disabled={true}>Select Country</option>
-                                        {
-                                            countryList.map((item) => {
-                                                return (
-                                                    <option key={item.country_id} value={item.country_id}>{item.name}</option>
-                                                )
-                                            })
-                                        }
-                                    </select> */}
-                                    <div className='down_arrow'>
-                                        <i class="fas fa-caret-down"></i>
-                                    </div>
-                                </div>
-                                <div style={errorMsg}>{validator.message("country", inputValues.country, "required", {
-                                    messages: {
-                                        required: "Select a country"
-                                    }
-                                })}</div>
-                            </div>
-                                ) :
-                                (
-                                    <div className='my-4 form_groupDiv'>
-                                <label className="form-label" htmlFor='country'>Select State*</label>
-                                <div className="selectss">
-                                <Select
-                                        className='material-select'
-                                        labelId="demo-simple-select-label"
-                                        id="country"
-                                        name='country'
-                                        defaultValue={bookingDetails && bookingDetails.country ? bookingDetails.country : 'Select State'}
-                                        onChange={e => {handleChange(e);selectedState(e)}}
-                                    >
-                                        <MenuItem value="Select State" disabled>Select State</MenuItem>
-                                        {
-                                            stateList.map((item) => {
-                                                return (
-                                                  <MenuItem
-                                                    key={item.id}
-                                                    value={item.id}
-                                                  >
-                                                    {item.name}
-                                                  </MenuItem>
-                                                );
-                                              })
-                                        }
-                                    </Select>
-                                    {/* <select className='input-field' name='country' id='country' onBlur={e => selectedCountry(e)} onChange={handleChange}>
-                                        <option value="" disabled={true}>Select Country</option>
-                                        {
-                                            countryList.map((item) => {
-                                                return (
-                                                    <option key={item.country_id} value={item.country_id}>{item.name}</option>
-                                                )
-                                            })
-                                        }
-                                    </select> */}
-                                    <div className='down_arrow'>
-                                        <i class="fas fa-caret-down"></i>
-                                    </div>
-                                </div>
-                                {
-                                    appType == '1' ? 
                                     (
-                                        <div style={errorMsg}>{validator.message("country", inputValues.country, "required", {
-                                            messages: {
-                                                required: "Select a country"
-                                            }
-                                        })}</div>
+                                        <div className='my-4 form_groupDiv'>
+                                            <label className="form-label" htmlFor='country'>Select Country*</label>
+                                            <div className="selectss">
+                                                <Select
+                                                    className='material-select'
+                                                    labelId="demo-simple-select-label"
+                                                    id="country"
+                                                    name='country'
+                                                    defaultValue={bookingDetails && bookingDetails.country ? bookingDetails.country : 'Select Country'}
+                                                    onChange={e => { handleChange(e); selectedCountry(e) }}
+                                                >
+                                                    <MenuItem value="Select Country" disabled>Select Country</MenuItem>
+                                                    {
+                                                        countryList.map((item) => {
+                                                            return (
+                                                                <MenuItem key={item.country_id} value={item.country_id}>{item.name}</MenuItem>
+                                                            )
+                                                        })
+                                                    }
+                                                </Select>
+                                                {/* <select className='input-field' name='country' id='country' onBlur={e => selectedCountry(e)} onChange={handleChange}>
+                                        <option value="" disabled={true}>Select Country</option>
+                                        {
+                                            countryList.map((item) => {
+                                                return (
+                                                    <option key={item.country_id} value={item.country_id}>{item.name}</option>
+                                                )
+                                            })
+                                        }
+                                    </select> */}
+                                                <div className='down_arrow'>
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                            </div>
+                                            <div style={errorMsg}>{validator.message("country", inputValues.country, "required", {
+                                                messages: {
+                                                    required: "Select a country"
+                                                }
+                                            })}</div>
+                                        </div>
                                     ) :
                                     (
-                                        <div style={errorMsg}>{validator.message("country", inputValues.country, "required", {
-                                            messages: {
-                                                required: "Select a state"
+                                        <div className='my-4 form_groupDiv'>
+                                            <label className="form-label" htmlFor='country'>Select State*</label>
+                                            <div className="selectss">
+                                                <Select
+                                                    className='material-select'
+                                                    labelId="demo-simple-select-label"
+                                                    id="country"
+                                                    name='country'
+                                                    defaultValue={bookingDetails && bookingDetails.country ? bookingDetails.country : 'Select State'}
+                                                    onChange={e => { handleChange(e); selectedState(e) }}
+                                                >
+                                                    <MenuItem value="Select State" disabled>Select State</MenuItem>
+                                                    {
+                                                        stateList.map((item) => {
+                                                            return (
+                                                                <MenuItem
+                                                                    key={item.id}
+                                                                    value={item.id}
+                                                                >
+                                                                    {item.name}
+                                                                </MenuItem>
+                                                            );
+                                                        })
+                                                    }
+                                                </Select>
+                                                {/* <select className='input-field' name='country' id='country' onBlur={e => selectedCountry(e)} onChange={handleChange}>
+                                        <option value="" disabled={true}>Select Country</option>
+                                        {
+                                            countryList.map((item) => {
+                                                return (
+                                                    <option key={item.country_id} value={item.country_id}>{item.name}</option>
+                                                )
+                                            })
+                                        }
+                                    </select> */}
+                                                <div className='down_arrow'>
+                                                    <i class="fas fa-caret-down"></i>
+                                                </div>
+                                            </div>
+                                            {
+                                                appType == '1' ?
+                                                    (
+                                                        <div style={errorMsg}>{validator.message("country", inputValues.country, "required", {
+                                                            messages: {
+                                                                required: "Select a country"
+                                                            }
+                                                        })}</div>
+                                                    ) :
+                                                    (
+                                                        <div style={errorMsg}>{validator.message("country", inputValues.country, "required", {
+                                                            messages: {
+                                                                required: "Select a state"
+                                                            }
+                                                        })}</div>
+                                                    )
                                             }
-                                        })}</div>
+
+                                        </div>
                                     )
-                                }
-                                
-                            </div>
-                                )
                             }
-                            
+
                             <div className='my-4 form_groupDiv'>
                                 <label className="form-label" htmlFor='city'>Select City*</label>
                                 <div className="selectss">
-                                <Select
+                                    <Select
                                         className='material-select'
                                         labelId="demo-simple-select-label"
                                         id="city"
                                         name='city'
                                         defaultValue={bookingDetails && bookingDetails.city ? bookingDetails.city : 'Select City'}
-                                        onChange={e =>  handleChange(e)}
+                                        onChange={e => handleChange(e)}
                                     >
                                         <MenuItem value="Select City" disabled>Select City</MenuItem>
-                                        
-                                        {
-                                            appType == '1' ? 
-                                            (cityName && bookingDetails) ?
 
-                                                (Array.isArray(cityList) && cityList.length) ?
-                                                    cityList.map((item) => {
-                                                        return (
-                                                            <MenuItem key={item.city_id} value={item.city_id} selected={`${bookingDetails.city == item.city_id ? 'selected' : ''}`}>{item.ci_name}</MenuItem>
-                                                        )
-                                                    }) : <MenuItem value="" disabled>No City Available</MenuItem>
-                                                :
-                                                (Array.isArray(cityList) && cityList.length) ?
-                                                    cityList.map((item) => {
-                                                        return (
-                                                            <MenuItem key={item.city_id} value={item.city_id}>{item.ci_name}</MenuItem>
-                                                        )
-                                                    }) : <MenuItem value="" disabled>No City Available</MenuItem> 
-                                                : 
-                                            
+                                        {
+                                            appType == '1' ?
                                                 (cityName && bookingDetails) ?
 
-                                                (Array.isArray(cityList) && cityList.length) ?
-                                                    cityList.map((item) => {
-                                                        return (
-                                                            <MenuItem key={item.id} value={item.id} selected={`${bookingDetails.city == item.id ? 'selected' : ''}`}>{item.name}</MenuItem>
-                                                        )
-                                                    }) : <MenuItem value="" disabled>No City Available</MenuItem>
+                                                    (Array.isArray(cityList) && cityList.length) ?
+                                                        cityList.map((item) => {
+                                                            return (
+                                                                <MenuItem key={item.city_id} value={item.city_id} selected={`${bookingDetails.city == item.city_id ? 'selected' : ''}`}>{item.ci_name}</MenuItem>
+                                                            )
+                                                        }) : <MenuItem value="" disabled>No City Available</MenuItem>
+                                                    :
+                                                    (Array.isArray(cityList) && cityList.length) ?
+                                                        cityList.map((item) => {
+                                                            return (
+                                                                <MenuItem key={item.city_id} value={item.city_id}>{item.ci_name}</MenuItem>
+                                                            )
+                                                        }) : <MenuItem value="" disabled>No City Available</MenuItem>
                                                 :
-                                                (Array.isArray(cityList) && cityList.length) ?
-                                                    cityList.map((item) => {
-                                                        return (
-                                                            <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
-                                                        )
-                                                    }) : <MenuItem value="" disabled>No City Available</MenuItem> 
+
+                                                (cityName && bookingDetails) ?
+
+                                                    (Array.isArray(cityList) && cityList.length) ?
+                                                        cityList.map((item) => {
+                                                            return (
+                                                                <MenuItem key={item.id} value={item.id} selected={`${bookingDetails.city == item.id ? 'selected' : ''}`}>{item.name}</MenuItem>
+                                                            )
+                                                        }) : <MenuItem value="" disabled>No City Available</MenuItem>
+                                                    :
+                                                    (Array.isArray(cityList) && cityList.length) ?
+                                                        cityList.map((item) => {
+                                                            return (
+                                                                <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                                                            )
+                                                        }) : <MenuItem value="" disabled>No City Available</MenuItem>
 
 
                                         }
@@ -371,10 +387,12 @@ function NewBooking() {
                             </div>
                             <ReactTooltip className='line-height' id='foo' place='bottom' offset={{ right: 60 }} event='click' multiline={true} />
                             <div className='my-4 form_groupDiv'>
-                                <label className="form-label" htmlFor='city'>Type of Trip* <i className=' fa-solid fa-circle-info' data-for="foo" data-tip="1) Point A to Point B Trip : An example of this type of trip is a pick up at an airport and a drop off destination of a hotel or even another city which could be either one way or a round trip with a pick up/drop off on same day or different days. <br><br> 2) Excursion Trip :
-                         An example of this type of trip is a pick up at an airport, a hotel, or another address that may be 2 to 10 or 14 days in length that goes from town to town through the countryside stopping wherever the Traveler desires."></i></label>
+                                <label className="form-label" htmlFor='city'>Type of Trip*
+                                    <i className=' fa-solid fa-circle-info' data-for="foo" data-tip="1) Point A to Point B Trip : An example of this type of trip is a pick up at an airport and a drop off destination of a hotel or even another city which could be either one way or a round trip with a pick up/drop off on same day or different days. <br><br> 2) Excursion Trip :
+                         An example of this type of trip is a pick up at an airport, a hotel, or another address that may be 2 to 10 or 14 days in length that goes from town to town through the countryside stopping wherever the Traveler desires."></i>
+                                </label>
                                 <div className="selectss">
-                                <Select
+                                    <Select
                                         className='material-select'
                                         labelId="demo-simple-select-label"
                                         id="type_of_trip"
@@ -404,7 +422,7 @@ function NewBooking() {
                             <div className='my-4 form_groupDiv'>
                                 <label className="form-label" htmlFor='no_people'>No of People*</label>
                                 <div className="selectss">
-                                <Select
+                                    <Select
                                         className='material-select'
                                         labelId="demo-simple-select-label"
                                         id="no_people"
