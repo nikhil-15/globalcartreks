@@ -1670,7 +1670,7 @@ p.send-text {
 }
 
 /* Rohit */
-#TpProvider .title_bottom {
+.title_bottom {
   background-color: #fff;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
