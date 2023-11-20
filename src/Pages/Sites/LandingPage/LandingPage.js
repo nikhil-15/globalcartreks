@@ -22,18 +22,18 @@ const LandingPage = () => {
   const handleOpen = () => {
     setOpen(true);
   };
-  
+
   const handleClose = () => {
     setOpen(false);
   };
 
   useEffect(() => {
     // window.scrollTo(0, 0);
-      if (auth != null && auth.type == '1') {
-          navigate("/user-dashboard");
-      } else if (auth != null && auth.type == '2') {
-          navigate("/vendor-dashboard");
-      }
+    if (auth != null && auth.type == '1') {
+      navigate("/user-dashboard");
+    } else if (auth != null && auth.type == '2') {
+      navigate("/vendor-dashboard");
+    }
   }, [auth])
 
   return (
@@ -83,16 +83,16 @@ const LandingPage = () => {
           }}
         >
           <Button className='modal-link' onClick={handleOpen}>How GlobalCarTreks.com works</Button>
-          <p>To book a Limousine in the U.S. / Registered Transportation Providers log in</p>
+          <p style={{ textAlign: 'center', }}>To book a Limousine in the U.S. / Registered Transportation Providers log in</p>
           <Link to="/register-option" onClick={setUS}>Click Here</Link>
           {/* <button className="landingBtn" to="" data-tip data-for="comingSoon" >Click Here</button> */}
 
           <ReactTooltip id="comingSoon" place="bottom" effect="solid" event="click">
             Coming soon
           </ReactTooltip>
-          <Link className='transport-link'  to="/tp-terms" onClick={setUS}>Transportation Providers - Join: Click Here</Link>
+          <Link className='transport-link' to="/tp-terms" onClick={setUS}>Transportation Providers - Join: Click Here</Link>
         </div>
-        
+
 
         {/* <div class="landingpage-text">
           <h4>How GlobalCarTreks.com works</h4>
@@ -133,47 +133,47 @@ const LandingPage = () => {
             alignItems: "center",
           }}
         >
-          <p>To book a Car and Driver in Europe / Registered Transportation Providers log in</p>
+          <p style={{ textAlign: 'center', }}>To book a Car and Driver in Europe / Registered Transportation Providers log in</p>
           <Link to="/register-option" onClick={setEU}>Click Here</Link>
-          <Link className='transport-link'  to="/tp-terms" onClick={setEU}>Transportation Providers - Join: Click Here</Link>
+          <Link className='transport-link' to="/tp-terms" onClick={setEU}>Transportation Providers - Join: Click Here</Link>
         </div>
-         
+
       </div>
-      
+
       <div className='work-modal-pop'>
-        
-          <SwipeableDrawer
-                anchor="bottom"
-                open={open}
-                onClose={handleClose}
-                // open={state[anchor]}
-                // onClose={toggleDrawer(anchor, false)}
-                // onOpen={toggleDrawer(anchor, true)}
-              >
-          <div style={{backgroundColor:'#fff'}}>
+
+        <SwipeableDrawer
+          anchor="bottom"
+          open={open}
+          onClose={handleClose}
+        // open={state[anchor]}
+        // onClose={toggleDrawer(anchor, false)}
+        // onOpen={toggleDrawer(anchor, true)}
+        >
+          <div style={{ backgroundColor: '#fff' }}>
             <Button className='close-icn' onClick={handleClose}>
               <span class="svg-icon svg-icon-1">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
-                      <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
-                  </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+                  <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
+                </svg>
               </span>
             </Button>
-              <div className="landingpage-text">
-                <h4>How GlobalCarTreks.com works</h4>
-                <ul>
-                    <li>Traveler/Consumer Makes a Request</li>  
-                    <li>Receives Bids</li>
-                    <li>Books the Service</li>
-                    <li>Makes Payment</li>
-                    <li>
-                        This is a marketplace like Hotels.com and Airbnb.com. Here you can find Transportation Providers for trips
-                    </li>
-                    <li>No cost to register and receive bids</li>
-                    <p><span>Note:</span> For more details, see on Site or App :</p>
-                    <p>(1) How GlobalCarTreks.com works and <br></br>(2) FAQ's for Travelers</p>
-                </ul>
-              </div>
+            <div className="landingpage-text">
+              <h4>How GlobalCarTreks.com works</h4>
+              <ul>
+                <li>Traveler/Consumer Makes a Request</li>
+                <li>Receives Bids</li>
+                <li>Books the Service</li>
+                <li>Makes Payment</li>
+                <li>
+                  This is a marketplace like Hotels.com and Airbnb.com. Here you can find Transportation Providers for trips
+                </li>
+                <li>No cost to register and receive bids</li>
+                <p><span>Note:</span> For more details, see on Site or App :</p>
+                <p>(1) How GlobalCarTreks.com works and <br></br>(2) FAQ's for Travelers</p>
+              </ul>
+            </div>
           </div>
         </SwipeableDrawer>
       </div>

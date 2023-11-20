@@ -106,7 +106,7 @@ function UserRegister() {
     const handleInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        setUserRegistration({ ...userRegistration, [name]: value })
+        setUserRegistration({ ...userRegistration, [name]: value });
         // setEmailErr({ emailErr: '' });
     }
 
@@ -245,7 +245,7 @@ function UserRegister() {
 
     const errorMsg = {
         color: 'red',
-    }
+    }  
 
     return (
         <div>
@@ -273,11 +273,11 @@ function UserRegister() {
                                     />
                                     <div className="form-label" style={errorMsg}>
                                         {
-                                            simpleValidator.current.message('name', userRegistration.name, 'required|min:4',
+                                            simpleValidator.current.message('name', userRegistration.name, 'required|min:3',
                                                 {
                                                     messages: {
                                                         required: "Enter your name",
-                                                        min: "Name must contain atleast 4 characters",
+                                                        min: "Name must contain atleast 3 characters",
                                                         // alpha_space: "Only letters and spaces are allowed"
                                                     }
                                                 })
@@ -299,13 +299,15 @@ function UserRegister() {
                                         autoComplete='off'
                                     // onBlur={()=>simpleValidator.current.showMessageFor('email')} 
                                     />
-                                    <div className="form-label" style={errorMsg}>{simpleValidator.current.message('email', userRegistration.email, 'required|email|min:4|max:40',
+                                    <div className="form-label" style={errorMsg}>
+                                        {simpleValidator.current.message('email', userRegistration.email, 'required|email|min:4|max:40',
                                         {
                                             messages: {
                                                 required: "Enter your email address",
                                                 email: 'Email is not valid'
                                             }
-                                        })}</div>
+                                        })}
+                                    </div>
                                     <span className="form-label" style={errorMsg} >{emailErr}</span>
                                 </div>
 
