@@ -1670,6 +1670,16 @@ p.send-text {
 }
 
 /* Rohit */
+#TpProvider .title_bottom {
+  background-color: #fff;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.react-datepicker-wrapper{
+  width: 100%;
+}
+
 .input-field::placeholder {
   /* Firefox 18-28 */
   color: #000 !important;
@@ -1708,6 +1718,10 @@ textarea::placeholder {
 }
 
 @media only screen and (max-width: 535px) {
+  .notify-badge {
+    right: 5px !important;
+  }
+
   #QuoteForm #foo-fas0 {
     top: 40% !important;
   }
